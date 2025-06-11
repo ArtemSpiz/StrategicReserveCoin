@@ -41,21 +41,27 @@ function toggleFAQ(index) {
 </script>
 
 <template>
-	<div class="flex items-end justify-between">
-		<div><img :src="LeftGold" alt="LeftGold" /></div>
+	<div
+		class="flex items-end justify-between max-md:justify-center max-xl:gap-10 max-xl:px-[40px] max-md:gap-8 max-md:px-[30px] max-sm:px-[20px]"
+	>
+		<div class="max-md:hidden"><img :src="LeftGold" alt="LeftGold" /></div>
 
 		<div class="flex flex-col gap-12 items-center justify-center">
 			<div class="flex flex-col text-center gap-4">
-				<div class="text-white text-[48px] font-ibm-mono leading-[52px]">
+				<div
+					class="text-white text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col items-center max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[35px] max-xs:text-[32px]"
+				>
 					FAQ
 				</div>
-				<div class="text-white w-[300px] font-ibm-sans text-[16px] font-medium">
+				<div
+					class="text-white w-[300px] font-ibm-sans text-[16px] font-medium max-lg:w-[300px] max-md:text-[15px] max-xs:text-[14px] max-xs:w-full"
+				>
 					Trust Built on Transparency, Community, and Purposeful Parody.
 				</div>
 			</div>
 
 			<div
-				class="flex flex-col gap-6 items-center justify-center max-w-[800px] w-full"
+				class="flex flex-col gap-6 items-center justify-center max-w-[800px] w-full max-md:w-full"
 			>
 				<div
 					v-for="(FAQ, index) in FAQContent"
@@ -91,16 +97,19 @@ function toggleFAQ(index) {
 
 						<component
 							:is="opened[index] ? Minus : Plus"
-							class="w-[50px] flex-shrink-0"
+							class="w-[50px] flex-shrink-0 max-md:w-max"
 						/>
 					</div>
 
-					<hr class="border-[#E4E7EC80]" />
+					<hr
+						v-if="index !== FAQContent.length - 1"
+						class="border-[#E4E7EC80]"
+					/>
 				</div>
 			</div>
 		</div>
 
-		<div><img :src="RightGold" alt="RightGold" /></div>
+		<div class="max-md:hidden"><img :src="RightGold" alt="RightGold" /></div>
 	</div>
 </template>
 

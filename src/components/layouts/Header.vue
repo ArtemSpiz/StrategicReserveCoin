@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import logo from '@/assets/img/logo.png'
 import Button from '../ui/Button.vue'
 import BurgerMenu from '@/assets/svg/BurgerMenu.vue'
+import goldHero from '@/assets/img/goldHero.png'
 
 const titles = [
 	'About',
@@ -38,13 +39,14 @@ const isMenuOpen = ref(false)
 			</div>
 
 			<div class="flex items-center gap-6 max-lg:hidden">
-				<div
+				<router-link
 					v-for="(title, index) in titles"
 					:key="index"
+					:to="'/' + title.toLowerCase().replace(/\s+/g, '-')"
 					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
 				>
 					{{ title }}
-				</div>
+				</router-link>
 			</div>
 
 			<div class="max-lg:hidden">
@@ -61,16 +63,26 @@ const isMenuOpen = ref(false)
 
 		<div
 			v-if="isMenuOpen"
-			class="lg:hidden absolute top-full left-0 w-full bg-[#140B01] px-6 py-4 z-50 flex flex-col items-start gap-4"
+			class="lg:hidden absolute top-full left-[20px] right-[20px] mt-[24px] z-50 flex flex-col items-start gap-4 border-[#FFF] border rounded-[20px] p-[20px] items-center"
+			style="background: rgba(20, 11, 1, 0.4); backdrop-filter: blur(10px)"
 		>
 			<div
 				v-for="(title, index) in titles"
 				:key="index"
-				class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+				class="w-full items-start text-start gap-4"
 			>
-				{{ title }}
+				<router-link
+					v-for="(title, index) in titles"
+					:key="index"
+					:to="'/' + title.toLowerCase().replace(/\s+/g, '-')"
+					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+				>
+					{{ title }}
+				</router-link>
+
+				<hr v-if="index !== titles.length - 1" class="border-[#E4E7EC80]" />
 			</div>
-			<Button class="leading-[21px] px-6 h-10 text-[14px]" />
+			<div><img :src="goldHero" alt="gold" /></div>
 		</div>
 	</div>
 </template>

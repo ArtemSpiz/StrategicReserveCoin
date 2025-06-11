@@ -8,19 +8,17 @@ import twitter from '@/assets/img/twitter.png'
 <template>
 	<div>
 		<div
-			class="flex justify-between items-start self-stretch px-[140px] py-[24px]"
+			class="flex justify-between items-start self-stretch px-[140px] py-[24px] max-xl:px-[100px] max-lg:px-[60px] max-md:px-[40px] max-sm:px-[20px] max-sm:flex-col max-sm:gap-4 max-sm:justify-center max-sm:items-center"
 		>
 			<div class="flex items-center gap-[10px] shrink-0">
-				<div class="w-8 h-11">
+				<div class="w-8 h-11 max-xs:w-[35px] max-xs:h-[48px]">
 					<img :src="logo" alt="logo" class="w-full h-full" />
 				</div>
 				<div
-					class="text-white text-[17px] font-normal leading-[13px] flex flex-col items-start gap-[2px] title-logo"
+					class="text-white text-[21px] font-normal leading-[76.635%] flex flex-col items-start gap-[2px] max-xs:text-[18px]"
 				>
 					Strategic
-					<span class="text-[12.49px] leading-[13.243px] subtitle"
-						>Reserve Coin</span
-					>
+					<span class="text-[15px] max-xs:text-[13px]"> Reserve Coin </span>
 				</div>
 			</div>
 			<div class="flex gap-[57px] items-start">
@@ -55,7 +53,7 @@ import twitter from '@/assets/img/twitter.png'
 			</div>
 		</div>
 		<div
-			class="flex justify-between items-start self-stretch px-[140px] py-[24px]"
+			class="flex justify-between items-start self-stretch px-[140px] py-[24px] max-xl:px-[100px] max-lg:px-[60px] max-md:px-[40px] max-sm:px-[20px] max-sm:flex-col max-sm:gap-[8px] max-sm:items-center max-sm:justify-center"
 		>
 			<div
 				class="text-[#B1B0B7] text-[14px] font-ibm-sans font-normal leading-5"

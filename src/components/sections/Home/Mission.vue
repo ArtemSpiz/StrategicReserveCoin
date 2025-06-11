@@ -4,6 +4,7 @@ import MissionDiscord from '@/assets/svg/MissionDiscord.vue'
 import MissionPeople from '@/assets/svg/MissionPeople.vue'
 import MissionSquare from '@/assets/svg/MissionSquare.vue'
 import MissionMascot from '@/assets/img/MissionMascot.png'
+import MissionMascotMobil from '@/assets/img/MissionMascotMobil.png'
 
 const Missions = [
 	{
@@ -34,51 +35,63 @@ const Missions = [
 </script>
 
 <template>
-	<div class="flex flex-col items-center px-16 gap-[50px]">
+	<div
+		class="flex flex-col items-center px-16 gap-[50px] max-xl:px-10 max-lg:px-8 max-md:px-[20px]"
+	>
 		<div class="flex flex-col text-center gap-4">
 			<div
-				class="text-white text-[48px] font-ibm-mono font-normal leading-[52px]"
+				class="text-white text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col items-center max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[35px] max-xs:text-[32px]"
 			>
 				Mission
 			</div>
 			<div
-				class="text-white w-[615px] font-ibm-sans text-[16px] font-medium text-center"
+				class="text-white text-[16px] font-ibm-sans leading-[24px] font-normal w-[615px] text-center max-lg:w-[400px] max-md:text-[15px] max-xs:text-[14px] max-xs:w-full"
 			>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua.
 			</div>
 		</div>
-		<div class="flex relative justify-between w-full">
-			<div class="flex flex-col items-center gap-[155px] pt-[60px]">
-				<div class="flex flex-col gap-4 items-center">
-					<component :is="Missions[0].image" />
+		<div
+			class="flex relative justify-between w-full max-lg:flex max-lg:flex-col-reverse max-lg:items-center"
+		>
+			<div
+				class="flex flex-col items-center gap-[200px] max-xl:gap-[180px] max-lg:flex-row max-md:gap-[41px]"
+			>
+				<div class="flex flex-col gap-4 items-center max-md:gap-2">
+					<component
+						:is="Missions[0].image"
+						class="max-md:w-[32px] max-md:h-[32px]"
+					/>
 					<div
-						class="flex flex-col items-center text-center max-w-[283px] gap-2"
+						class="flex flex-col items-center text-center max-w-[342px] gap-2 max-md:max-w-[170px]"
 					>
 						<h3
-							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px]"
+							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px] max-xl:text-[22px] text-nowrap max-md:text-wrap"
 						>
 							{{ Missions[0].title }}
 						</h3>
 						<p
-							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px]"
+							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px] max-md:text-[12px]"
 						>
 							{{ Missions[0].subtitle }}
 						</p>
 					</div>
 				</div>
-				<div class="flex flex-col gap-4 items-center">
-					<component :is="Missions[1].image" />
+				<div class="flex flex-col gap-4 items-center max-md:gap-2">
+					<component
+						:is="Missions[1].image"
+						class="max-md:w-[32px] max-md:h-[32px]"
+					/>
 					<div
-						class="flex flex-col items-center text-center max-w-[283px] gap-2"
+						class="flex flex-col items-center text-center max-w-[342px] gap-2 max-md:max-w-[170px]"
 					>
 						<h3
-							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px]"
+							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px] max-xl:text-[22px] text-nowrap max-md:text-wrap"
 						>
 							{{ Missions[1].title }}
 						</h3>
 						<p
-							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px]"
+							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px] max-md:text-[12px] max-xs:w-[150px]"
 						>
 							{{ Missions[1].subtitle }}
 						</p>
@@ -87,45 +100,58 @@ const Missions = [
 			</div>
 
 			<div
-				class="absolute top-[70%] left-[52%] transform -translate-x-1/2 -translate-y-1/2 -z-20"
+				class="w-[850px] h-auto -mt-[75px] max-custom-xl:-mt-[25px] max-lg:w-[100%] max-lg:h-[610px] max-lg:-mt-[0px] max-md:w-[400px] max-md:h-[422px]"
 			>
 				<img
 					:src="MissionMascot"
 					alt="MissionMascot"
-					class="w-[850px] h-[724px] max-w-none"
+					class="max-w-noe w-full max-xl:h-[550px] max-lg:hidden"
+				/>
+				<img
+					:src="MissionMascotMobil"
+					alt="MissionMascotMobil"
+					class="max-w-noe w-full hidden max-lg:flex h-full"
 				/>
 			</div>
 
-			<div class="flex flex-col items-center gap-[155px] pt-[60px]">
-				<div class="flex flex-col gap-4 items-center">
-					<component :is="Missions[2].image" />
+			<div
+				class="flex flex-col items-center gap-[200px] max-xl:gap-[180px] max-lg:flex-row max-md:gap-[41px]"
+			>
+				<div class="flex flex-col gap-4 items-center max-md:gap-2">
+					<component
+						:is="Missions[2].image"
+						class="max-md:w-[32px] max-md:h-[32px]"
+					/>
 					<div
-						class="flex flex-col items-center text-center max-w-[283px] gap-2"
+						class="flex flex-col items-center text-center max-w-[342px] gap-2 max-md:max-w-[170px]"
 					>
 						<h3
-							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px]"
+							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px] max-xl:text-[22px] text-nowrap max-md:text-wrap"
 						>
 							{{ Missions[2].title }}
 						</h3>
 						<p
-							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px]"
+							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px] max-md:text-[12px]"
 						>
 							{{ Missions[2].subtitle }}
 						</p>
 					</div>
 				</div>
-				<div class="flex flex-col gap-4 items-center">
-					<component :is="Missions[3].image" />
+				<div class="flex flex-col gap-4 items-center max-md:gap-2">
+					<component
+						:is="Missions[3].image"
+						class="max-md:w-[32px] max-md:h-[32px]"
+					/>
 					<div
-						class="flex flex-col items-center text-center max-w-[283px] gap-2"
+						class="flex flex-col items-center text-center max-w-[342px] gap-2 max-md:max-w-[170px]"
 					>
 						<h3
-							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px]"
+							class="text-white font-ibm-sans text-[24px] font-medium leading-[26px] max-xl:text-[22px] text-nowrap max-md:text-wrap"
 						>
 							{{ Missions[3].title }}
 						</h3>
 						<p
-							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px]"
+							class="text-gray-text font-ibm-sans text-[14px] font-medium leading-[16px] max-md:text-[12px]"
 						>
 							{{ Missions[3].subtitle }}
 						</p>
