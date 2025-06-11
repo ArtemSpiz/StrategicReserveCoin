@@ -36,21 +36,62 @@ const roadmapInner = ref(null)
 onMounted(() => {
 	nextTick(() => {
 		const ctx = gsap.context(() => {
-			const totalCards = roadmapInner.value.children.length
-			const cardWidth = roadmapInner.value.children[0].offsetWidth
-			const totalScroll = (cardWidth + 32) * (totalCards - 1)
+			const cards = roadmapInner.value.children
+			const cardWidth = 520
+			const collapsedWidth = 180
+			const gap = 32
+			const scrollSegment = 700 // довжина скролу для кожної картки
 
-			gsap.to(roadmapInner.value, {
-				x: `-${totalScroll}`,
-				ease: 'none',
-				scrollTrigger: {
+			// Фіксуємо секцію для всього скролу
+			ScrollTrigger.create({
+				trigger: roadmapWrapper.value,
+				start: 'bottom bottom',
+				end: `+=${scrollSegment * cards.length}`,
+				pin: roadmapSection.value,
+				scrub: true,
+			})
+
+			Array.from(cards).forEach((card, i) => {
+				const title = card.querySelector('.card-title')
+				const restTitle = card.querySelector('.rest-title')
+				const content = card.querySelector('.card-content')
+				const number = card.querySelector('.card-num')
+
+				const start = i * scrollSegment
+				const end = start + scrollSegment
+
+				card.style.width = `${cardWidth}px`
+
+				ScrollTrigger.create({
 					trigger: roadmapWrapper.value,
-					start: 'bottom bottom',
-					end: `+=${totalScroll}`,
-					pin: roadmapSection.value,
-					scrub: 1,
-					invalidateOnRefresh: true,
-				},
+					start: () => `${start}px`,
+					end: () => `${end}px`,
+					scrub: true,
+					onUpdate: self => {
+						const progress = self.progress
+						const width = cardWidth - progress * (cardWidth - collapsedWidth)
+
+						card.style.width = `${width}px`
+
+						if (width < 400) {
+							number.style.display = 'none'
+						} else {
+							number.style.display = ''
+						}
+
+						if (width < 220) {
+							content.style.display = 'none'
+						} else {
+							content.style.display = ''
+						}
+
+						if (width < 350) {
+							restTitle.style.display = 'none'
+						} else {
+							restTitle.style.display = ''
+						}
+					},
+				})
 			})
 		}, roadmapWrapper)
 
@@ -91,25 +132,30 @@ onMounted(() => {
 							ref="roadmapSection"
 							v-for="(plan, index) in Roadmap"
 							:key="index"
-							class="w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start gap-[220px] border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:gap-[150px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-sm:px-[15px] max-sm:pt-[23px] max-sm:pb-[7px] max-xs:gap-[108px] max-xs:w-[256px]"
+							class="roadmap-card h-[390px] w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start gap-[220px] border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:gap-[150px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-sm:px-[15px] max-sm:pt-[23px] max-sm:pb-[7px] max-xs:gap-[108px] max-xs:w-[256px]"
 						>
 							<div class="h-[67px] w-full justify-between flex max-lg:h-full">
 								<div
-									class="flex flex-col justify-between max-lg:justify-normal"
+									class="flex flex-col justify-between max-lg:justify-normal h-[67px] max-lg:h-full"
 								>
 									<div
-										class="text-white font-ibm-sans text-[24px] font-medium leading-[25px] max-lg:text-[20px] max-sm:text-[18px] max-xs:whitespace-normal"
+										class="text-white font-ibm-sans text-[24px] font-medium leading-[25px] max-lg:text-[20px] max-sm:text-[18px] max-xs:whitespace-normal card-title gap-1 flex w-full"
 									>
-										{{ plan.title }}
+										<span class="first-word">{{
+											plan.title.split(' ')[0]
+										}}</span>
+										<span class="rest-title">
+											{{ plan.title.split(' ').slice(1).join(' ') }}
+										</span>
 									</div>
 									<div
-										class="text-gray-text text-[14px] font-ibm-sans font-medium left-4 max-sm:text-[12px]"
+										class="text-gray-text text-[14px] font-ibm-sans font-medium left-4 max-sm:text-[12px] card-year"
 									>
 										{{ plan.year }}
 									</div>
 								</div>
 								<div
-									class="text-right font-ibm-mono text-[56px] font-normal leading-[61px] max-lg:text-[45px] max-lg:leading-[100%] max-sm:text-32px"
+									class="card-num text-right font-ibm-mono text-[56px] font-normal leading-[61px] max-lg:text-[45px] max-lg:leading-[100%] max-sm:text-32px"
 									style="
 										background: linear-gradient(
 											96deg,
@@ -125,7 +171,7 @@ onMounted(() => {
 								</div>
 							</div>
 							<div
-								class="w-[422px] text-gray-roadmap text-[14px] font-ibm-sans font-normal max-lg:w-full"
+								class="w-full text-gray-roadmap text-[14px] font-ibm-sans font-normal max-lg:w-full card-content"
 							>
 								<template v-if="Array.isArray(plan.text)">
 									<ul class="list-disc list-inside max-xs:whitespace-normal">
