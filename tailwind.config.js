@@ -37,6 +37,7 @@ export default {
 				mascot: 'auto 100%',
 			},
 			borderColor: {
+				cards: 'rgba(255, 255, 255, 0.40)',
 				benefits: 'rgba(255, 255, 255, 0.20)',
 			},
 			animation: {

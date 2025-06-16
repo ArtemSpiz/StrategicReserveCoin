@@ -1,6 +1,4 @@
-<script setup>
-import Header from './components/layouts/Header.vue'
-</script>
+<script setup></script>
 
 <template>
 	<router-view />

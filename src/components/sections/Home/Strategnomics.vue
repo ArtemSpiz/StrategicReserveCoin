@@ -3,25 +3,10 @@ import StrategnomicsCheckMark from '@/assets/svg/StrategnomicsCheckMark.vue'
 import StrategnomicsMoney from '@/assets/svg/StrategnomicsMoney.vue'
 import StrategnomicsRewards from '@/assets/svg/StrategnomicsRewards.vue'
 import StrategnomicsTeam from '@/assets/svg/StrategnomicsTeam.vue'
-
 import StrategnomicsDoc from '@/assets/svg/StrategnomicsDoc.vue'
 import StrategnomicsCoin from '@/assets/img/StrategnomicsCoin.png'
 import Button from '@/components/ui/Button.vue'
-
-const StrategnomicsCards = [
-	{
-		title: 'Name',
-		subtitle: 'Strategic Reserve Coin',
-	},
-	{
-		title: 'Type',
-		subtitle: 'ERC20',
-	},
-	{
-		title: 'Supply',
-		subtitle: '2 Billion $SRC Tokens',
-	},
-]
+import { StrategnomicsCards } from '@/data/StrategnomicsCardsData'
 
 const address = '0XAC1D2486AAF3B5C0C3D868558B082A531B2B4'
 
@@ -198,7 +183,7 @@ function copyToClipboard() {
 						<img
 							:src="StrategnomicsCoin"
 							alt="StrategnomicsCoin"
-							class="w-[700px] h-[700px] max-w-none max-xl:w-[600px] max-xl:h-[600px] max-lg:w-[550px] max-lg:h-[550px] max-md:w-[400px] max-md:h-[400px]"
+							class="w-[700px] h-[700px] max-w-none max-xl:w-[600px] max-xl:h-[600px] max-lg:w-[550px] max-lg:h-[550px] max-md:w-[400px] max-md:h-[400px] max-sm:w-[350px] max-sm:h-[350px]"
 						/>
 					</div>
 

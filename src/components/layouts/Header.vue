@@ -24,7 +24,7 @@ const isMenuOpen = ref(false)
 		<div
 			class="flex justify-between items-center px-12 py-4 max-xl:p-4 max-sm:pt-5 max-sm:pb-0"
 		>
-			<div class="flex items-center gap-[10px] shrink-0">
+			<router-link to="/" class="flex items-center gap-[10px] shrink-0">
 				<div class="w-8 h-11 max-xs:w-[30px] max-xs:h-[40px]">
 					<img :src="logo" alt="logo" class="w-full h-full" />
 				</div>
@@ -36,7 +36,7 @@ const isMenuOpen = ref(false)
 						Reserve Coin
 					</span>
 				</div>
-			</div>
+			</router-link>
 
 			<div class="flex items-center gap-6 max-lg:hidden">
 				<router-link
@@ -72,8 +72,6 @@ const isMenuOpen = ref(false)
 				class="w-full items-start text-start gap-4"
 			>
 				<router-link
-					v-for="(title, index) in titles"
-					:key="index"
 					:to="'/' + title.toLowerCase().replace(/\s+/g, '-')"
 					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
 				>
