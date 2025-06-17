@@ -8,7 +8,7 @@ import HeroTokenomicsMob from '@/assets/img/HeroTokenomicsMob.png'
 	<div>
 		<Header />
 		<div
-			class="bg-[url('@/assets/img/bgHeroTocenomics.png')] bg-no-repeat bg-ggg bg-[right_-70px_top_0px] w-full max-xl:bg-cover max-lg:bg-none"
+			class="2xl:h-[60vh] 2xl:items-center max-2xl:items-stretch flex max-2xl:h-full bg-[url('@/assets/img/bgHeroTocenomics.png')] bg-no-repeat bg-ggg bg-center max-[1300px]:bg-[right_-70px_top_0px] w-full max-xl:bg-cover max-lg:bg-none"
 		>
 			<div
 				class="flex flex-col justify-center pl-[65px] items-start gap-[80px] pt-[88px] pb-[128px] max-xl:pl-[20px] max-lg:pt-[60px] max-lg:pb-0 max-lg:pl-0 max-lg:justify-center max-lg:items-center max-lg:gap-[60px] max-md:gap-[44px] max-md:px-[20px] max-md:pt-[45px]"

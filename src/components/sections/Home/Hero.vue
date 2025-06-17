@@ -5,7 +5,7 @@ import Button from '../../ui/Button.vue'
 
 <template>
 	<div
-		class="bg-hero-pattern h-screen w-full bg-no-repeat bg-ggg relative overflow-hidden max-2xl:bg-mascot max-2xl:bg-center max-lg:bg-[right_-200px_top_0] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
+		class="2xl:h-[80vh] bg-hero-pattern max-2xl:h-screen w-full bg-no-repeat bg-ggg relative overflow-hidden max-lg:bg-[right_-200px_top_0] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
 	>
 		<Header />
 
@@ -32,6 +32,42 @@ import Button from '../../ui/Button.vue'
 			<div
 				class="whitespace-nowrap animate-marquee text-white font-ibm-mono text-[26px] leading-[30px] font-normal [text-shadow:0px_1.414px_0.354px_#291006] flex"
 			>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Potential TVL</span
+					>
+				</span>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Transactions Per Second</span
+					>
+				</span>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Average transaction cost</span
+					>
+				</span>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Potential TVL</span
+					>
+				</span>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Transactions Per Second</span
+					>
+				</span>
+				<span class="mx-8 items-center flex gap-2"
+					>XXX
+					<span class="font-ibm-sans text-[14px] leading-[21px]"
+						>Average transaction cost</span
+					>
+				</span>
 				<span class="mx-8 items-center flex gap-2"
 					>XXX
 					<span class="font-ibm-sans text-[14px] leading-[21px]"

@@ -125,7 +125,7 @@ function copyToClipboard() {
 					</div>
 				</div>
 				<div
-					class="flex justify-between items-center relative w-full max-md:flex-col max-md:h-[550px]"
+					class="max-w-[1600px] flex justify-between items-center relative w-full max-md:flex-col max-md:h-[550px]"
 				>
 					<div class="flex flex-col max-md:flex-row">
 						<div

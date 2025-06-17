@@ -1,4 +1,4 @@
-export const roadmap = [
+export const DiagramData = [
 	{
 		title: 'Launch Phase',
 		year: '2025',

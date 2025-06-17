@@ -184,7 +184,7 @@ onMounted(() => {
 				</div>
 
 				<div
-					class="relative w-full overflow-hidden h-[100%]"
+					class="relative w-full overflow-hidden h-[100%] max-w-[1600px]"
 					style="scrollbar-width: none; -ms-overflow-style: none"
 				>
 					<div

@@ -10,7 +10,7 @@ export default {
 				lg: '1024px',
 				xl: '1280px',
 				'custom-xl': '1350px',
-				'2xl': '1536px',
+				'2xl': '1600px',
 			},
 			fontFamily: {
 				'ibm-mono': ['"IBM Plex Mono"', 'monospace'],
@@ -41,7 +41,7 @@ export default {
 				benefits: 'rgba(255, 255, 255, 0.20)',
 			},
 			animation: {
-				marquee: 'marquee 30s linear infinite',
+				marquee: 'marquee 15s linear infinite',
 			},
 			keyframes: {
 				marquee: {

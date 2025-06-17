@@ -23,7 +23,7 @@ import { Missions } from '@/data/MissionData'
 			</div>
 		</div>
 		<div
-			class="flex relative justify-between w-full max-lg:flex max-lg:flex-col-reverse max-lg:items-center"
+			class="max-w-[1600px] flex relative justify-between w-full max-lg:flex max-lg:flex-col-reverse max-lg:items-center"
 		>
 			<div
 				class="flex flex-col items-center gap-[200px] max-xl:gap-[180px] max-lg:flex-row max-md:gap-[41px]"

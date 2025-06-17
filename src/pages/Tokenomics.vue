@@ -6,12 +6,14 @@ import TokenomicsSection from '@/components/sections/Tokenomics/TokenomicsSectio
 </script>
 
 <template>
-	<div class="flex flex-col gap-[100px] max-md:gap-[80px]">
-		<TokenomicsHero />
-		<TokenSupply />
-		<TokenomicsSection />
+	<div>
+		<div class="flex flex-col gap-[100px] max-md:gap-[80px]">
+			<TokenomicsHero />
+			<TokenSupply />
+			<TokenomicsSection />
+		</div>
+		<Roadmap />
 	</div>
-	<Roadmap />
 </template>
 
 <style scoped></style>

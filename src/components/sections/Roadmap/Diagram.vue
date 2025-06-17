@@ -2,7 +2,7 @@
 import { onMounted, onBeforeUnmount, ref, nextTick } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import { roadmap } from '@/data/CardsData'
+import { DiagramData } from '@/data/DiagramData'
 gsap.registerPlugin(ScrollTrigger)
 
 const roadmapWrapper = ref(null)
@@ -178,11 +178,11 @@ onMounted(() => {
 <template>
 	<div
 		ref="roadmapWrapper"
-		class="flex items-center justify-center px-[60px] pt-[100px] pb-[48px] max-lg:pt-[90px] max-xl:px-[50px] max-md:pt-[80px] max-md:px-[40px] max-sm:px-[20px] relative"
+		class="flex items-center justify-center px-[60px] pt-[100px] pb-[48px] max-lg:pt-[90px] max-xl:px-[50px] max-md:pt-[80px] max-md:px-[40px] max-sm:px-[20px] relative mx-auto max-w-[1600px]"
 	>
 		<section
 			ref="roadmapSection"
-			class="relative w-full overflow-hidden max-sm:flex max-sm:h-screen max-sm:justify-center max-sm:overflow-hidden"
+			class="relative w-full overflow-hidden max-sm:flex max-sm:h-screen max-sm:justify-center max-sm:overflow-hidden mx-auto max-w-[1600px]"
 		>
 			<div
 				ref="roadmapInner"
@@ -190,7 +190,7 @@ onMounted(() => {
 				class="bg-[url('@/assets/img/lineCards.png')] bg-ggg bg-no-repeat w-max h-max items-center max-sm:bg-none"
 			>
 				<div
-					v-for="(item, index) in roadmap"
+					v-for="(item, index) in DiagramData"
 					:key="index"
 					:class="[
 						'flex flex-col gap-[32px] px-[16px] py-[24px] border-l w-[329px] h-[613px] max-sm:h-[410px]',

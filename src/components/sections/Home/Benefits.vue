@@ -21,7 +21,7 @@ import { Benefits } from '@/data/BenefitsData.js'
 		</div>
 
 		<div
-			class="grid grid-cols-2 custom-xl:grid-cols-5 gap-4 text-white custom-xl:p-12 w-full max-lg:flex max-lg:flex-col"
+			class="max-w-[1600px] grid grid-cols-2 custom-xl:grid-cols-5 gap-4 text-white custom-xl:p-12 w-full max-lg:flex max-lg:flex-col"
 		>
 			<div
 				class="col-span-1 custom-xl:col-span-3 border border-benefits bg-gray-benefit h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"

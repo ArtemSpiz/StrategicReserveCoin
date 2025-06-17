@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button.vue'
 	<div>
 		<Header />
 		<div
-			class="bg-[url('@/assets/img/RoadmapHeroBg.png')] bg-no-repeat bg-ggg bg-[right_-180px_top_0px] w-full max-xl:bg-cover max-lg:bg-none"
+			class="bg-[url('@/assets/img/RoadmapHeroBg.png')] bg-no-repeat bg-ggg bg-center w-full max-[1300px]:bg-[right_-180px_top_0px] max-xl:bg-cover max-lg:bg-none"
 		>
 			<div
 				class="flex flex-col justify-center pl-[65px] items-start gap-[80px] pt-[112px] pb-[152px] max-xl:pl-[20px] max-lg:pt-[60px] max-lg:pb-0 max-lg:pl-0 max-lg:justify-center max-lg:items-center max-lg:gap-[60px] max-md:gap-[44px] max-md:px-[20px] max-md:pt-[45px]"
