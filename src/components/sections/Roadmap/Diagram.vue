@@ -65,9 +65,9 @@ onMounted(() => {
 
 				ScrollTrigger.create({
 					trigger: roadmapWrapper.value,
-					start: 'center center',
+					start: 'top top',
 					end: `+=${totalScroll}`,
-					scrub: 0.8,
+					scrub: true,
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
