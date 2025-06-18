@@ -24,7 +24,7 @@ onBeforeUnmount(() => {
 })
 
 onMounted(() => {
-	nextTick(() => {
+	setTimeout(() => {
 		const isMobile = window.innerWidth < 740
 
 		const cardsScroll = gsap.context(() => {
@@ -69,6 +69,7 @@ onMounted(() => {
 					end: `+=${totalScroll}`,
 					scrub: 0.8,
 					pin: roadmapSection.value,
+					pinSpacing: false,
 					invalidateOnRefresh: true,
 					snap: {
 						snapTo: 1 / (cards.length - 1),
@@ -103,6 +104,8 @@ onMounted(() => {
 						})
 					},
 				})
+
+				ScrollTrigger.refresh()
 			}
 		}, roadmapWrapper)
 
@@ -110,7 +113,7 @@ onMounted(() => {
 			cardsScroll.revert()
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 		})
-	})
+	}, 150)
 })
 </script>
 
