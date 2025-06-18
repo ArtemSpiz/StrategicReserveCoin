@@ -35,7 +35,7 @@ onMounted(() => {
 
 			if (isMobile) {
 				const cards = roadmapInner.value.children
-				const spacing = window.innerHeight * 0.192
+				const spacing = window.innerHeight * 0.03
 				const cardHeight = 260
 				const totalScroll = (cards.length - 1) * spacing
 
@@ -54,12 +54,19 @@ onMounted(() => {
 					card.style.display = 'flex'
 					card.style.justifyContent = 'space-between'
 					card.style.flexDirection = 'column'
-
-					cards[0].style.opacity = '1'
-					cards[0].style.background = '#140B01'
-					cards[0].style.zIndex = '10'
-					cards[0].style.transform = 'translateX(-50%) scale(1.05)'
+					const content = card.querySelector('.cffff')
+					if (content) content.style.display = 'none'
 				})
+
+				const first = cards[0]
+				if (first) {
+					const content = first.querySelector('.cffff')
+					if (content) content.style.display = 'flex'
+					first.style.opacity = '1'
+					first.style.background = '#140B01'
+					first.style.transform = 'translateX(-50%)'
+					first.style.zIndex = '10'
+				}
 
 				ScrollTrigger.create({
 					trigger: roadmapWrapper.value,
@@ -69,25 +76,34 @@ onMounted(() => {
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
-						snapTo: 1 / (cards.length - 1),
-						duration: { min: 0.2, max: 0.4 },
-						ease: 'power1.inOut',
+						snapTo: value => {
+							const snaps = cards.length - 1
+							const nearest = Math.round(value * snaps) / snaps
+							return nearest
+						},
+						duration: { min: 1, max: 1.4 },
+						ease: 'power4.out',
 					},
 					onUpdate: self => {
 						const progress = self.progress
 						const activeIdx = Math.round(progress * (cards.length - 1))
 
 						Array.from(cards).forEach((card, index) => {
+							const content = card.querySelector('.cffff')
+
 							if (index === activeIdx) {
 								card.style.opacity = '1'
 								card.style.background = '#140B01'
 								card.style.zIndex = '10'
-								card.style.transform = 'translateX(-50%) scale(1.05)'
+								card.style.transform = 'translateX(-50%))'
+								if (content) content.style.display = 'flex'
 							} else {
+								if (content) content.style.display = 'none'
+
 								card.style.opacity = '0.4'
 								card.style.background = 'rgba(255,255,255,0.2)'
 								card.style.zIndex = '1'
-								card.style.transform = 'translateX(-50%) scale(1)'
+								card.style.transform = 'translateX(-50%)'
 							}
 						})
 
@@ -197,10 +213,10 @@ onMounted(() => {
 						<div
 							v-for="(plan, index) in Roadmap"
 							:key="index"
-							class="2xl:h-[500px] max-2xl:h-[390px] roadmap-card w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pt-[23px] max-sm:pb-[7px] max-sm:px-[15px] max-sm:justify-center max-sm:gap-[80px] max-sm:border-none max-sm:shadow-none"
+							class="2xl:h-[500px] max-2xl:h-[390px] roadmap-card w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pt-[23px] max-sm:pb-[7px]max-sm:justify-center max-sm:gap-[80px] max-sm:border-none max-sm:shadow-none max-sm:px-0"
 						>
 							<div
-								class="h-[67px] w-full justify-between flex max-lg:h-full max-sm:h-[72px] max-sm:border-t max-sm:border-[#564F48] max-sm:pt-[10px] max-sm:shadow-[0_-6.914px_6.914px_0_rgba(88,54,18,0.3)] max-sm:px-[15px]"
+								class="h-[67px] cffff w-full justify-between flex max-lg:h-full max-sm:h-[72px] max-sm:border-t max-sm:border-[#564F48] max-sm:pt-[10px] max-sm:shadow-[0_-6.914px_6.914px_0_rgba(88,54,18,0.3)] max-sm:px-[15px]"
 							>
 								<div
 									class="flex flex-col justify-between max-lg:justify-normal h-[67px] max-lg:h-full max-sm:h-max"

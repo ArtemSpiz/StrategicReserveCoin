@@ -51,6 +51,7 @@ onMounted(() => {
 					if (content) content.style.display = 'none'
 					card.style.display = 'flex'
 					card.style.flexDirection = 'column'
+					card.style.borderLeft = '1px solid rgba(255, 255, 255, 0.40)'
 				})
 
 				const first = cards[0]
@@ -61,23 +62,23 @@ onMounted(() => {
 					first.style.background =
 						'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 60.09%, rgba(247, 124, 50, 0.20) 150.05%), #140B01'
 					first.style.zIndex = '10'
+					first.style.borderLeft = '1px solid #F77C32'
 				}
 
 				ScrollTrigger.create({
 					trigger: roadmapWrapper.value,
 					start: 'top top',
 					end: `+=${totalScroll}`,
-					scrub: true, // плавніше скролиться
+					scrub: true,
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
 						snapTo: value => {
-							// Точніше прив'язування до активної картки
 							const snaps = cards.length - 1
 							const nearest = Math.round(value * snaps) / snaps
 							return nearest
 						},
-						duration: { min: 1, max: 1.4 }, // зробити довше анімацію переходу
+						duration: { min: 1, max: 1.4 },
 						ease: 'power4.out',
 					},
 					onUpdate: self => {
@@ -91,11 +92,13 @@ onMounted(() => {
 									'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 40.09%, rgba(247, 124, 50, 0.20) 100.05%), #140B01'
 								card.style.filter = 'brightness(1)'
 								card.style.zIndex = '10'
+								card.style.borderLeft = '1px solid #F77C32'
 								if (content) content.style.display = 'flex'
 							} else {
 								card.style.filter = 'brightness(0.6)'
 								if (content) content.style.display = 'none'
 								card.style.zIndex = '1'
+								card.style.borderLeft = '1px solid rgba(255, 255, 255, 0.40)'
 								card.style.background = 'rgba(50, 43, 35, 0.40)'
 							}
 						})
@@ -103,7 +106,7 @@ onMounted(() => {
 						const offsetY = -progress * ((cards.length - 1) * spacing)
 						gsap.to(roadmapInner.value, {
 							y: offsetY,
-							duration: 0.8, // зроблено повільніше
+							duration: 0.8,
 							ease: 'power3.out',
 							overwrite: true,
 						})
