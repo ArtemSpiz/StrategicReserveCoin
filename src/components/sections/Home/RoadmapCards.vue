@@ -36,7 +36,7 @@ onMounted(() => {
 			if (isMobile) {
 				const cards = roadmapInner.value.children
 				const spacing = window.innerHeight * 0.03
-				const cardHeight = 260
+				const cardHeight = 300
 				const totalScroll = (cards.length - 1) * spacing
 
 				Array.from(cards).forEach((card, index) => {
