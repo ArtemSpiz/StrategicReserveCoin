@@ -15,7 +15,7 @@ const updateScreenWidth = () => {
 	screenWidth.value = window.innerWidth
 }
 
-onMounted(() => {
+onMounted(async () => {
 	window.addEventListener('resize', updateScreenWidth)
 })
 
@@ -23,97 +23,98 @@ onBeforeUnmount(() => {
 	window.removeEventListener('resize', updateScreenWidth)
 })
 
-onMounted(() => {
-	setTimeout(() => {
-		const isMobile = window.innerWidth < 740
+onMounted(async () => {
+	const isMobile = window.innerWidth < 740
 
-		const cardsScroll = gsap.context(() => {
-			const cards = roadmapInner.value.children
+	await nextTick()
+	await waitForStableHeight(roadmapSection.value, 10) // <== ЧЕКАЄМО
 
-			if (isMobile) {
-				const spacing = window.innerHeight * 0.05
-				const cardHeight = 410
-				const totalScroll = (cards.length - 1) * spacing + cardHeight / 2
+	const cardsScroll = gsap.context(() => {
+		const cards = roadmapInner.value.children
 
-				Array.from(cards).forEach((card, index) => {
-					card.style.position = 'absolute'
-					card.style.left = '50%'
-					card.style.transform = 'translateX(-50%)'
-					card.style.top = `${index * spacing}px`
-					card.style.height = `${cardHeight}px`
-					card.style.width = '330px'
-					card.style.maxWidth = '330px'
-					card.style.transition = 'all 0.4s ease'
-					card.style.background = 'rgba(255, 255, 255, 0.2)'
-					card.style.filter = 'brightness(0.6)'
-					card.style.zIndex = '1'
-					const content = card.querySelector('.card-content')
-					if (content) content.style.display = 'none'
-					card.style.display = 'flex'
-					card.style.flexDirection = 'column'
-				})
+		if (isMobile) {
+			const spacing = window.innerHeight * 0.05
+			const cardHeight = 410
+			const totalScroll = (cards.length - 1) * spacing + cardHeight / 2
 
-				const first = cards[0]
-				if (first) {
-					const content = first.querySelector('.card-content')
-					if (content) content.style.display = 'flex'
-					first.style.filter = 'brightness(1)'
-					first.style.background =
-						'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 60.09%, rgba(247, 124, 50, 0.20) 150.05%), #140B01'
-					first.style.zIndex = '10'
-				}
+			Array.from(cards).forEach((card, index) => {
+				card.style.position = 'absolute'
+				card.style.left = '50%'
+				card.style.transform = 'translateX(-50%)'
+				card.style.top = `${index * spacing}px`
+				card.style.height = `${cardHeight}px`
+				card.style.width = '330px'
+				card.style.maxWidth = '330px'
+				card.style.transition = 'all 0.4s ease'
+				card.style.background = 'rgba(255, 255, 255, 0.2)'
+				card.style.filter = 'brightness(0.6)'
+				card.style.zIndex = '1'
+				const content = card.querySelector('.card-content')
+				if (content) content.style.display = 'none'
+				card.style.display = 'flex'
+				card.style.flexDirection = 'column'
+			})
 
-				ScrollTrigger.create({
-					trigger: roadmapWrapper.value,
-					start: 'top top',
-					end: `+=${totalScroll}`,
-					scrub: 0.8,
-					pin: roadmapSection.value,
-					pinSpacing: false,
-					invalidateOnRefresh: true,
-					snap: {
-						snapTo: 1 / (cards.length - 1),
-						duration: { min: 0.6, max: 0.8 },
-						ease: 'power3.inOut',
-					},
-					onUpdate: self => {
-						const progress = self.progress
-						const activeIdx = Math.round(progress * (cards.length - 1))
-
-						Array.from(cards).forEach((card, index) => {
-							const content = card.querySelector('.card-content')
-							if (index === activeIdx) {
-								card.style.background =
-									'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 40.09%, rgba(247, 124, 50, 0.20) 100.05%), #140B01'
-								card.style.filter = 'brightness(1)'
-								card.style.zIndex = '10'
-								if (content) content.style.display = 'flex'
-							} else {
-								card.style.filter = 'brightness(0.6)'
-								if (content) content.style.display = 'none'
-								card.style.zIndex = '1'
-								card.style.background = 'rgba(50, 43, 35, 0.40)'
-							}
-						})
-
-						const offsetY = -progress * ((cards.length - 1) * spacing)
-						gsap.to(roadmapInner.value, {
-							y: offsetY,
-							duration: 0.5,
-							ease: 'power3.out',
-						})
-					},
-				})
-
-				ScrollTrigger.refresh()
+			const first = cards[0]
+			if (first) {
+				const content = first.querySelector('.card-content')
+				if (content) content.style.display = 'flex'
+				first.style.filter = 'brightness(1)'
+				first.style.background =
+					'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 60.09%, rgba(247, 124, 50, 0.20) 150.05%), #140B01'
+				first.style.zIndex = '10'
 			}
-		}, roadmapWrapper)
 
-		onBeforeUnmount(() => {
-			cardsScroll.revert()
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-		})
-	}, 150)
+			ScrollTrigger.create({
+				trigger: roadmapWrapper.value,
+				start: 'top top',
+				end: `+=${totalScroll}`,
+				scrub: 0.8,
+				pin: roadmapSection.value,
+				pinSpacing: false,
+				invalidateOnRefresh: true,
+				snap: {
+					snapTo: 1 / (cards.length - 1),
+					duration: { min: 0.6, max: 0.8 },
+					ease: 'power3.inOut',
+				},
+				onUpdate: self => {
+					const progress = self.progress
+					const activeIdx = Math.round(progress * (cards.length - 1))
+
+					Array.from(cards).forEach((card, index) => {
+						const content = card.querySelector('.card-content')
+						if (index === activeIdx) {
+							card.style.background =
+								'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 40.09%, rgba(247, 124, 50, 0.20) 100.05%), #140B01'
+							card.style.filter = 'brightness(1)'
+							card.style.zIndex = '10'
+							if (content) content.style.display = 'flex'
+						} else {
+							card.style.filter = 'brightness(0.6)'
+							if (content) content.style.display = 'none'
+							card.style.zIndex = '1'
+							card.style.background = 'rgba(50, 43, 35, 0.40)'
+						}
+					})
+
+					const offsetY = -progress * ((cards.length - 1) * spacing)
+					gsap.to(roadmapInner.value, {
+						y: offsetY,
+						duration: 0.5,
+						ease: 'power3.out',
+					})
+				},
+			})
+
+			ScrollTrigger.refresh()
+		}
+	}, roadmapWrapper)
+
+	onBeforeUnmount(() => {
+		cardsScroll.revert()
+		ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+	})
 })
 </script>
 
