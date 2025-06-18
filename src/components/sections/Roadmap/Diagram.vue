@@ -25,14 +25,12 @@ onBeforeUnmount(() => {
 
 onMounted(() => {
 	nextTick(() => {
-		const screenWidth = window.innerWidth
-		const isMobile = screenWidth < 640
+		const isMobile = window.innerWidth < 740
 
 		const cardsScroll = gsap.context(() => {
 			const cards = roadmapInner.value.children
 
 			if (isMobile) {
-				const cards = roadmapInner.value.children
 				const spacing = window.innerHeight * 0.05
 				const cardHeight = 410
 				const totalScroll = (cards.length - 1) * spacing + cardHeight / 2
@@ -45,7 +43,7 @@ onMounted(() => {
 					card.style.height = `${cardHeight}px`
 					card.style.width = '330px'
 					card.style.maxWidth = '330px'
-					card.style.transition = 'all 0.3s ease'
+					card.style.transition = 'all 0.4s ease'
 					card.style.background = 'rgba(255, 255, 255, 0.2)'
 					card.style.filter = 'brightness(0.6)'
 					card.style.zIndex = '1'
@@ -53,116 +51,57 @@ onMounted(() => {
 					if (content) content.style.display = 'none'
 					card.style.display = 'flex'
 					card.style.flexDirection = 'column'
-
-					const contentFirst = cards[0].querySelector('.card-content')
-					if (contentFirst) contentFirst.style.display = 'flex'
-					cards[0].style.filter = 'brightness(1)'
-					cards[0].style.background =
-						'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 60.09%, rgba(247, 124, 50, 0.20) 150.05%), #140B01'
-					cards[0].style.zIndex = '10'
 				})
+
+				const first = cards[0]
+				if (first) {
+					const content = first.querySelector('.card-content')
+					if (content) content.style.display = 'flex'
+					first.style.filter = 'brightness(1)'
+					first.style.background =
+						'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 60.09%, rgba(247, 124, 50, 0.20) 150.05%), #140B01'
+					first.style.zIndex = '10'
+				}
 
 				ScrollTrigger.create({
 					trigger: roadmapWrapper.value,
 					start: 'top top',
 					end: `+=${totalScroll}`,
-					scrub: true,
+					scrub: 0.8,
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
 						snapTo: 1 / (cards.length - 1),
-						duration: { min: 0.2, max: 0.4 },
-						ease: 'power1.inOut',
+						duration: { min: 0.6, max: 0.8 },
+						ease: 'power3.inOut',
 					},
 					onUpdate: self => {
 						const progress = self.progress
 						const activeIdx = Math.round(progress * (cards.length - 1))
 
 						Array.from(cards).forEach((card, index) => {
+							const content = card.querySelector('.card-content')
 							if (index === activeIdx) {
 								card.style.background =
 									'linear-gradient(217deg, rgba(23, 9, 21, 0.00) 40.09%, rgba(247, 124, 50, 0.20) 100.05%), #140B01'
 								card.style.filter = 'brightness(1)'
 								card.style.zIndex = '10'
-								const content = card.querySelector('.card-content')
 								if (content) content.style.display = 'flex'
 							} else {
 								card.style.filter = 'brightness(0.6)'
-								const content = card.querySelector('.card-content')
 								if (content) content.style.display = 'none'
 								card.style.zIndex = '1'
-
-								switch (index) {
-									case 1:
-										card.style.background = 'rgba(50, 43, 35, 0.40)'
-										break
-									case 2:
-										card.style.background = 'rgba(55, 48, 39, 0.30)'
-										break
-									case 3:
-										card.style.background = 'rgba(53, 52, 51, 0.20)'
-										break
-									default:
-										card.style.background = 'rgba(50, 43, 35, 0.40)'
-								}
+								card.style.background = 'rgba(50, 43, 35, 0.40)'
 							}
 						})
 
 						const offsetY = -progress * ((cards.length - 1) * spacing)
 						gsap.to(roadmapInner.value, {
 							y: offsetY,
-							duration: 0,
-							ease: 'none',
+							duration: 0.5,
+							ease: 'power3.out',
 						})
 					},
-				})
-			} else {
-				const cardWidth = 329
-				const collapsedWidth = 120
-				const scrollSegment = 500
-
-				ScrollTrigger.create({
-					trigger: roadmapInner.value,
-					start: 'center center',
-					end: `+=${scrollSegment * cards.length}`,
-					pin: roadmapInner.value,
-					scrub: false,
-				})
-
-				Array.from(cards).forEach((card, i) => {
-					const restTitle = card.querySelector('.rest-title')
-					const content = card.querySelector('.card-content')
-					const number = card.querySelector('.card-num')
-
-					const visibilityThresholds = {
-						number: 300,
-						content: 325,
-						title: 240,
-					}
-
-					const start = i * scrollSegment
-					const end = start + scrollSegment
-
-					card.style.width = `${cardWidth}px`
-
-					ScrollTrigger.create({
-						trigger: roadmapWrapper.value,
-						start: () => `${start}px`,
-						end: () => `${end}px`,
-						scrub: true,
-						onUpdate: self => {
-							const progress = self.progress
-							const width = cardWidth - progress * (cardWidth - collapsedWidth)
-							card.style.width = `${width}px`
-
-							number.style.visibility =
-								width < visibilityThresholds.number ? 'hidden' : 'visible'
-							content.style.visibility =
-								width < visibilityThresholds.content ? 'hidden' : 'visible'
-							restTitle.style.visibility =
-								width < visibilityThresholds.title ? 'hidden' : 'visible'
-						},
-					})
 				})
 			}
 		}, roadmapWrapper)
@@ -182,27 +121,37 @@ onMounted(() => {
 	>
 		<section
 			ref="roadmapSection"
-			class="relative w-full overflow-hidden max-sm:flex max-sm:h-screen max-sm:justify-center max-sm:overflow-hidden mx-auto max-w-[1600px]"
+			class="relative w-full overflow-hidden max-md:flex max-md:h-screen max-md:justify-center max-md:overflow-hidden mx-auto max-w-[1600px] max-[1420px]:justify-center max-[1420px]:flex"
 		>
 			<div
 				ref="roadmapInner"
 				:class="screenWidth < 640 ? 'flex flex-col' : 'flex '"
-				class="bg-[url('@/assets/img/lineCards.png')] bg-ggg bg-no-repeat w-max h-max items-center max-sm:bg-none"
+				class="bg-[url('@/assets/img/lineCards.png')] bg-ggg bg-no-repeat w-max h-max items-center max-[1420px]:grid max-[1420px]:grid-cols-2 max-[1420px]:justify-center max-[1420px]:bg-none max-[1420px]:gap-[16px]"
 			>
 				<div
 					v-for="(item, index) in DiagramData"
 					:key="index"
 					:class="[
-						'flex flex-col gap-[32px] px-[16px] py-[24px] border-l w-[329px] h-[613px] max-sm:h-[410px]',
-						index === 0 ? 'border-l-[#F77C32]' : 'border-l-cards',
-						'max-sm:justify-start',
-						index === 2 || index === 3 ? 'sm:justify-end' : 'sm:justify-start',
+						'flex flex-col gap-[32px] px-[16px] py-[24px] border-l w-[329px] h-[613px] max-[1420px]:h-[500px] max-md:h-[410px]',
+						screenWidth < 1420
+							? 'border-l-[#F77C32]'
+							: index === 0
+							? 'border-l-[#F77C32]'
+							: 'border-l-cards',
+						screenWidth < 1420
+							? 'justify-start'
+							: index === 2 || index === 3
+							? 'sm:justify-end'
+							: 'sm:justify-start',
 					]"
-					:style="
-						index === 0
-							? 'background: linear-gradient(217deg, rgba(23, 9, 21, 0) 60.09%, rgba(247, 124, 50, 0.2) 150.05%)'
-							: ''
-					"
+					:style="{
+						background:
+							screenWidth < 1420
+								? 'linear-gradient(217deg, rgba(23, 9, 21, 0) 60.09%, rgba(247, 124, 50, 0.2) 150.05%)'
+								: index === 0
+								? 'linear-gradient(217deg, rgba(23, 9, 21, 0) 60.09%, rgba(247, 124, 50, 0.2) 150.05%)'
+								: '',
+					}"
 				>
 					<div class="flex justify-between self-stretch items-center">
 						<div class="flex flex-col justify-between h-[48px]">

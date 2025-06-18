@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button.vue'
 <template>
 	<div>
 		<div
-			class="2xl:h-[80vh] max-2xl:h-full bg-roadmap-pattern bg-no-repeat bg-ggg max-[1350px]:bg-[right_-200px_top_0] max-md:bg-[url('@/assets/img/roadmapBgMobil.png')] max-md:bg-center max-md:h-screen"
+			class="2xl:h-[80vh] max-2xl:h-full bg-roadmap-pattern bg-no-repeat bg-ggg max-[1350px]:bg-[right_-150px_top_0] max-lg:bg-[right_-100px_top_0] max-md:bg-[url('@/assets/img/roadmapBgMobil.png')] max-md:bg-center max-md:h-screen"
 		>
 			<div
 				class="pl-[158px] pb-[230px] justify-center flex flex-col items-start text-start gap-12 max-[1300px]:pl-[100px] max-xl:px-[40px] max-md:gap-8 max-md:px-[30px] max-md:pb-0 max-sm:px-[20px] max-md:justify-start max-md:items-center max-md:text-center max-xs:bg-contain"

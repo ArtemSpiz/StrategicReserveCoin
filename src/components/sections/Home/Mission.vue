@@ -23,7 +23,7 @@ import { Missions } from '@/data/MissionData'
 			</div>
 		</div>
 		<div
-			class="max-w-[1600px] flex relative justify-between w-full max-lg:flex max-lg:flex-col-reverse max-lg:items-center"
+			class="max-w-[1600px] flex relative justify-between w-full max-xl:items-center max-lg:flex max-lg:flex-col-reverse max-lg:items-center"
 		>
 			<div
 				class="flex flex-col items-center gap-[200px] max-xl:gap-[180px] max-lg:flex-row max-md:gap-[41px]"
@@ -71,17 +71,17 @@ import { Missions } from '@/data/MissionData'
 			</div>
 
 			<div
-				class="w-[850px] h-auto -mt-[75px] max-custom-xl:-mt-[25px] max-lg:w-[100%] max-lg:h-[610px] max-lg:-mt-[0px] max-md:w-[400px] max-md:h-[422px] max-sm:w-full"
+				class="w-[850px] h-auto -mt-[75px] max-custom-xl:-mt-[0px] max-xl:w-[750px] max-xl:justify-center max-xl:h-auto max-lg:w-[650px] max-lg:h-auto max-lg:-mt-[0px] max-md:w-[400px] max-md:h-[422px] max-sm:h-full max-sm:w-full"
 			>
 				<img
 					:src="MissionMascot"
 					alt="MissionMascot"
-					class="max-w-noe w-full max-xl:h-[550px] max-lg:hidden"
+					class="max-w-noe w-full max-lg:hidden"
 				/>
 				<img
 					:src="MissionMascotMobil"
 					alt="MissionMascotMobil"
-					class="max-w-noe w-full hidden max-lg:flex h-full"
+					class="max-w-noe w-full hidden max-lg:flex h-auto max-h-[600px] max-md:max-h-[400px] max-sm:max-h-full object-contain"
 				/>
 			</div>
 

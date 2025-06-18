@@ -197,7 +197,7 @@ onMounted(() => {
 						<div
 							v-for="(plan, index) in Roadmap"
 							:key="index"
-							class="roadmap-card h-[390px] w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pt-[23px] max-sm:pb-[7px] max-sm:px-[15px] max-sm:justify-center max-sm:gap-[80px] max-sm:border-none max-sm:shadow-none"
+							class="2xl:h-[500px] max-2xl:h-[390px] roadmap-card w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pt-[23px] max-sm:pb-[7px] max-sm:px-[15px] max-sm:justify-center max-sm:gap-[80px] max-sm:border-none max-sm:shadow-none"
 						>
 							<div
 								class="h-[67px] w-full justify-between flex max-lg:h-full max-sm:h-[72px] max-sm:border-t max-sm:border-[#564F48] max-sm:pt-[10px] max-sm:shadow-[0_-6.914px_6.914px_0_rgba(88,54,18,0.3)] max-sm:px-[15px]"

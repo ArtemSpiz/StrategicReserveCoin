@@ -5,7 +5,7 @@ import Button from '../../ui/Button.vue'
 
 <template>
 	<div
-		class="2xl:h-[80vh] bg-hero-pattern max-2xl:h-screen w-full bg-no-repeat bg-ggg relative overflow-hidden max-lg:bg-[right_-200px_top_0] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
+		class="2xl:h-[80vh] bg-hero-pattern max-2xl:h-screen w-full bg-no-repeat bg-cover relative overflow-hidden max-lg:bg-[right_-150px_top_0] max-md:bg-cover max-sm:[height:calc(100vh+64px)] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
 	>
 		<Header />
 
