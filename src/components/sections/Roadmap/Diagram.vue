@@ -67,13 +67,18 @@ onMounted(() => {
 					trigger: roadmapWrapper.value,
 					start: 'top top',
 					end: `+=${totalScroll}`,
-					scrub: true,
+					scrub: true, // плавніше скролиться
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
-						snapTo: 1 / (cards.length - 1),
-						duration: { min: 0.6, max: 0.8 },
-						ease: 'power3.inOut',
+						snapTo: value => {
+							// Точніше прив'язування до активної картки
+							const snaps = cards.length - 1
+							const nearest = Math.round(value * snaps) / snaps
+							return nearest
+						},
+						duration: { min: 1, max: 1.4 }, // зробити довше анімацію переходу
+						ease: 'power4.out',
 					},
 					onUpdate: self => {
 						const progress = self.progress
@@ -98,8 +103,9 @@ onMounted(() => {
 						const offsetY = -progress * ((cards.length - 1) * spacing)
 						gsap.to(roadmapInner.value, {
 							y: offsetY,
-							duration: 0.5,
+							duration: 0.8, // зроблено повільніше
 							ease: 'power3.out',
+							overwrite: true,
 						})
 					},
 				})
