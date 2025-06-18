@@ -76,13 +76,9 @@ onMounted(() => {
 					pin: roadmapSection.value,
 					invalidateOnRefresh: true,
 					snap: {
-						snapTo: value => {
-							const snaps = cards.length - 1
-							const nearest = Math.round(value * snaps) / snaps
-							return nearest
-						},
-						duration: { min: 1, max: 1.4 },
-						ease: 'power4.out',
+						snapTo: 1 / (cards.length - 1),
+						duration: { min: 0.2, max: 0.4 },
+						ease: 'power1.inOut',
 					},
 					onUpdate: self => {
 						const progress = self.progress
