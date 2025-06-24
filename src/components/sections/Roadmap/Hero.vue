@@ -36,7 +36,12 @@ import Button from '@/components/ui/Button.vue'
 			<div
 				class="hidden max-lg:flex justify-center w-full h-[400px] max-sm:h-auto"
 			>
-				<img :src="RoadmapHeroBgMob" alt="clock" />
+				<img
+					loading="lazy"
+					decoding="async"
+					:src="RoadmapHeroBgMob"
+					alt="clock"
+				/>
 			</div>
 		</div>
 	</div>

@@ -26,7 +26,13 @@ const isMenuOpen = ref(false)
 		>
 			<router-link to="/" class="flex items-center gap-[10px] shrink-0">
 				<div class="w-8 h-11 max-xs:w-[30px] max-xs:h-[40px]">
-					<img :src="logo" alt="logo" class="w-full h-full" />
+					<img
+						loading="lazy"
+						decoding="async"
+						:src="logo"
+						alt="logo"
+						class="w-full h-full"
+					/>
 				</div>
 				<div
 					class="text-white text-[17px] font-normal leading-[13px] flex flex-col items-start gap-[2px] max-xs:text-[15px]"
@@ -39,14 +45,32 @@ const isMenuOpen = ref(false)
 			</router-link>
 
 			<div class="flex items-center gap-6 max-lg:hidden">
-				<router-link
-					v-for="(title, index) in titles"
-					:key="index"
-					:to="'/' + title.toLowerCase().replace(/\s+/g, '-')"
-					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
-				>
-					{{ title }}
-				</router-link>
+				<div class="" v-for="(title, index) in titles" :key="index">
+					<router-link
+						v-if="title === 'Tokenomics'"
+						:to="'/tokenomics'"
+						class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+					>
+						{{ title }}
+					</router-link>
+					<router-link
+						v-else-if="title === 'Roadmap'"
+						:to="'/roadmap'"
+						class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+					>
+						{{ title }}
+					</router-link>
+					<router-link
+						v-else
+						:to="{
+							path: '/',
+							query: { scrollTo: title.toLowerCase().replace(/\s+/g, '-') },
+						}"
+						class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+					>
+						{{ title }}
+					</router-link>
+				</div>
 			</div>
 
 			<div class="max-lg:hidden">
@@ -72,15 +96,34 @@ const isMenuOpen = ref(false)
 				class="w-full items-start text-start gap-4"
 			>
 				<router-link
-					:to="'/' + title.toLowerCase().replace(/\s+/g, '-')"
+					v-if="title === 'Tokenomics'"
+					:to="'/tokenomics'"
 					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
 				>
 					{{ title }}
 				</router-link>
-
+				<router-link
+					v-else-if="title === 'Roadmap'"
+					:to="'/roadmap'"
+					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+				>
+					{{ title }}
+				</router-link>
+				<router-link
+					v-else
+					:to="{
+						path: '/',
+						query: { scrollTo: title.toLowerCase().replace(/\s+/g, '-') },
+					}"
+					class="text-white text-center text-[14px] font-medium leading-[21px] font-ibm-mono cursor-pointer max-xl:text-[13px]"
+				>
+					{{ title }}
+				</router-link>
 				<hr v-if="index !== titles.length - 1" class="border-[#E4E7EC80]" />
 			</div>
-			<div><img :src="goldHero" alt="gold" /></div>
+			<div>
+				<img loading="lazy" decoding="async" :src="goldHero" alt="gold" />
+			</div>
 		</div>
 	</div>
 </template>

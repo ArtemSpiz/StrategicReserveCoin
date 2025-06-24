@@ -181,6 +181,8 @@ function copyToClipboard() {
 						class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 -z-[1]"
 					>
 						<img
+							loading="lazy"
+							decoding="async"
 							:src="StrategnomicsCoin"
 							alt="StrategnomicsCoin"
 							class="w-[700px] h-[700px] max-w-none max-xl:w-[600px] max-xl:h-[600px] max-lg:w-[550px] max-lg:h-[550px] max-md:w-[400px] max-md:h-[400px] max-sm:w-[350px] max-sm:h-[350px]"

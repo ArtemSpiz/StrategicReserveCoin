@@ -12,7 +12,13 @@ import twitter from '@/assets/img/twitter.png'
 		>
 			<div class="flex items-center gap-[10px] shrink-0">
 				<div class="w-8 h-11 max-xs:w-[35px] max-xs:h-[48px]">
-					<img :src="logo" alt="logo" class="w-full h-full" />
+					<img
+						loading="lazy"
+						decoding="async"
+						:src="logo"
+						alt="logo"
+						class="w-full h-full"
+					/>
 				</div>
 				<div
 					class="text-white text-[21px] font-normal leading-[76.635%] flex flex-col items-start gap-[2px] max-xs:text-[18px]"
@@ -68,13 +74,18 @@ import twitter from '@/assets/img/twitter.png'
 				</div>
 				<div class="flex gap-3 items-center">
 					<div class="w-[16px] cursor-pointer">
-						<img :src="twitter" alt="twitter" />
+						<img loading="lazy" decoding="async" :src="twitter" alt="twitter" />
 					</div>
 					<div class="w-[16px] cursor-pointer">
-						<img :src="telegram" alt="telegram" />
+						<img
+							loading="lazy"
+							decoding="async"
+							:src="telegram"
+							alt="telegram"
+						/>
 					</div>
 					<div class="w-[16px] cursor-pointer">
-						<img :src="inbuco" alt="inbuco" />
+						<img loading="lazy" decoding="async" :src="inbuco" alt="inbuco" />
 					</div>
 				</div>
 			</div>

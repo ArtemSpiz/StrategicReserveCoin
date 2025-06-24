@@ -36,10 +36,10 @@ import { tableContent } from '@/data/TokenomicsData'
 			</div>
 		</div>
 		<div class="w-[350px] h-[83px] max-md:hidden">
-			<img :src="gold" alt="gold" />
+			<img loading="lazy" decoding="async" :src="gold" alt="gold" />
 		</div>
 		<div class="w-[220px] h-[70px] hidden max-md:flex">
-			<img :src="goldMobil" alt="gold" />
+			<img loading="lazy" decoding="async" :src="goldMobil" alt="gold" />
 		</div>
 	</div>
 </template>

@@ -44,7 +44,12 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 			</div>
 
 			<div class="absolute top-[180px] hidden max-sm:flex">
-				<img :src="bgMobTokenomics" alt="gold" />
+				<img
+					loading="lazy"
+					decoding="async"
+					:src="bgMobTokenomics"
+					alt="gold"
+				/>
 			</div>
 
 			<div
@@ -158,7 +163,12 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 
 				<div class="absolute inset-0 flex items-center justify-center -z-10">
 					<div class="w-[122px] h-[160px] max-lg:w-[100px] max-lg:h-[135px]">
-						<img :src="logoTokenomics" alt="logoTokenomics" />
+						<img
+							loading="lazy"
+							decoding="async"
+							:src="logoTokenomics"
+							alt="logoTokenomics"
+						/>
 					</div>
 				</div>
 
@@ -182,12 +192,16 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					class="absolute top-[60px] right-[-20px] rotate-[180deg] max-sm:top-[-40px] max-sm:right-[50px] max-sm:rotate-0"
 				>
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsBottom"
 						alt="vector"
 						class="w-[70px] h-[35px] max-sm:hidden"
 					/>
 
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsBottomMobil"
 						alt="vector"
 						class="hidden max-sm:flex"
@@ -214,12 +228,16 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					class="absolute top-[60px] left-[-20px] max-sm:top-[-40px] max-sm:left-[50px]"
 				>
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsTop"
 						alt="vector"
 						class="w-[70px] h-[35px] max-sm:hidden"
 					/>
 
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsTopMobil"
 						alt="vector"
 						class="hidden max-sm:flex"
@@ -246,12 +264,16 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					class="absolute bottom-[50px] left-[-35px] max-sm:bottom-[-40px] max-sm:left-[60px]"
 				>
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsBottom"
 						alt="vector"
 						class="w-[70px] h-[35px] max-sm:hidden"
 					/>
 
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsBottomLeftMobil"
 						alt="vector"
 						class="hidden max-sm:flex"
@@ -278,12 +300,16 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					class="absolute bottom-[50px] right-[-30px] rotate-[180deg] max-sm:bottom-[-40px] max-sm:right-[60px]"
 				>
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsTop"
 						alt="vector"
 						class="w-[70px] h-[35px] max-sm:hidden"
 					/>
 
 					<img
+						loading="lazy"
+						decoding="async"
 						:src="tokenomicsTopMobil"
 						alt="vector"
 						class="hidden max-sm:flex"
@@ -324,6 +350,21 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					customClass="leading-[150%] px-12 h-14 text-[16px] w-max max-md:text-[10px] max-md:px-0 max-md:h-[30px] max-md:w-[90px] items-center flex justify-center"
 				/>
 			</div>
+		</div>
+
+		<div class="max-md:hidden">
+			<div
+				class="absolute w-[5px] h-[5px] top-[8%] left-[15%] dot rounded-full bg-white opacity-[0.2] animate-float"
+				style="filter: drop-shadow(0px 0px 6px #fff)"
+			></div>
+			<div
+				class="absolute w-[5px] h-[5px] top-[30%] left-[10%] dot rounded-full bg-white opacity-[0.2] animate-wave-sway"
+				style="filter: drop-shadow(0px 0px 6px #fff)"
+			></div>
+			<div
+				class="absolute w-[5px] h-[5px] top-[10%] right-[18%] dot rounded-full bg-white opacity-[0.2] animate-float"
+				style="filter: drop-shadow(0px 0px 6px #fff)"
+			></div>
 		</div>
 	</div>
 </template>

@@ -42,11 +42,34 @@ export default {
 			},
 			animation: {
 				marquee: 'marquee 15s linear infinite',
+				float: 'float 4s ease-in-out infinite',
+				'wave-sway': 'wave-sway 3s linear infinite',
+				'pulse-custom': 'pulse-custom 2.5s ease-in-out infinite',
 			},
 			keyframes: {
 				marquee: {
 					'0%': { transform: 'translateX(0%)' },
 					'100%': { transform: 'translateX(-50%)' },
+				},
+				float: {
+					'0%, 100%': { transform: 'translate(0, 0)', opacity: '0.2' },
+					'50%': { transform: 'translate(5px, -5px)', opacity: '0.4' },
+				},
+				'wave-sway': {
+					'0%, 100%': {
+						transform: 'rotate(0deg) translateX(0)',
+						opacity: '0.2',
+					},
+					'25%': { transform: 'rotate(10deg) translateX(4px)', opacity: '0.6' },
+					'50%': { transform: 'rotate(0deg) translateX(0)', opacity: '0.4' },
+					'75%': {
+						transform: 'rotate(-10deg) translateX(-4px)',
+						opacity: '0.6',
+					},
+				},
+				'pulse-custom': {
+					'0%, 100%': { transform: 'scale(1)', opacity: '0.2' },
+					'50%': { transform: 'scale(1.4)', opacity: '0.6' },
 				},
 			},
 		},

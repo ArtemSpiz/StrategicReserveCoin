@@ -8,7 +8,7 @@ import HeroTokenomicsMob from '@/assets/img/HeroTokenomicsMob.png'
 	<div>
 		<Header />
 		<div
-			class="2xl:h-[60vh] 2xl:items-center max-2xl:items-stretch flex max-2xl:h-full bg-[url('@/assets/img/bgHeroTocenomics.png')] bg-no-repeat bg-ggg bg-center max-[1300px]:bg-[right_-70px_top_0px] w-full max-xl:bg-cover max-lg:bg-none"
+			class="2xl:h-[60vh] 2xl:items-center max-2xl:items-stretch flex max-2xl:h-full bg-[url('@/assets/img/bgHeroTocenomics.png')] bg-no-repeat bg-ggg bg-center max-[1300px]:bg-[right_-70px_top_0px] w-full max-xl:bg-cover max-lg:bg-none max-lg:flex-col"
 		>
 			<div
 				class="flex flex-col justify-center pl-[65px] items-start gap-[80px] pt-[88px] pb-[128px] max-xl:pl-[20px] max-lg:pt-[60px] max-lg:pb-0 max-lg:pl-0 max-lg:justify-center max-lg:items-center max-lg:gap-[60px] max-md:gap-[44px] max-md:px-[20px] max-md:pt-[45px]"
@@ -22,7 +22,7 @@ import HeroTokenomicsMob from '@/assets/img/HeroTokenomicsMob.png'
 						Strategnomics
 					</div>
 					<div
-						class="text-white text-[16px] font-ibm-sans leading-[150%] font-medium w-[615px] max-xl:w-[450px] max-xl:text-[14px] max-md:text-[12px] max-md:font-normal max-sm:w-full"
+						class="text-white text-[16px] font-ibm-sans leading-[150%] font-medium w-[615px] max-xl:w-[450px] max-xl:text-[14px] max-md:text-[12px] max-md:font-normal max-sm:w-[-webkit-fill-available]"
 					>
 						SRC’s tokenomics model is structured to support network security,
 						incentivize participation, and sustain long-term value through
@@ -37,7 +37,12 @@ import HeroTokenomicsMob from '@/assets/img/HeroTokenomicsMob.png'
 			</div>
 
 			<div class="hidden max-lg:flex w-full justify-center">
-				<img :src="HeroTokenomicsMob" alt="gold" />
+				<img
+					loading="lazy"
+					decoding="async"
+					:src="HeroTokenomicsMob"
+					alt="gold"
+				/>
 			</div>
 		</div>
 	</div>

@@ -21,4 +21,10 @@ export const Roadmap = [
 		num: 'Q3',
 		text: 'Host educational events to spread awareness of SRC mission. Introduce exclusive benefits for token holders.',
 	},
+	{
+		title: 'Community ааааа',
+		year: '2025',
+		num: 'Q4',
+		text: 'Introduction of Strategic Reserve token and community outreach. - Initial partnerships with like-minded projects and influencers.',
+	},
 ]

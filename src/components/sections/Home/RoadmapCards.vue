@@ -28,88 +28,53 @@ onMounted(() => {
 	nextTick(() => {
 		const screenWidth = window.innerWidth
 		const isMobile = screenWidth < 640
-		const activeIndex = ref(0)
 
 		const ctx = gsap.context(() => {
 			const cards = roadmapInner.value.children
 
 			if (isMobile) {
-				const cards = roadmapInner.value.children
-				const spacing = window.innerHeight * 0.03
-				const cardHeight = 260
-				const totalScroll = (cards.length - 1) * spacing
-
-				Array.from(cards).forEach((card, index) => {
-					card.style.position = 'absolute'
-					card.style.left = '50%'
-					card.style.transform = 'translateX(-50%)'
-					card.style.top = `${index * spacing}px`
-					card.style.height = `${cardHeight}px`
-					card.style.width = '100%'
-					card.style.maxWidth = '100%'
-					card.style.transition = 'all 0.3s ease'
-					card.style.background = 'rgba(255, 255, 255, 0.2)'
-					card.style.opacity = '0.4'
-					card.style.zIndex = '1'
-					card.style.display = 'flex'
-					card.style.justifyContent = 'space-between'
-					card.style.flexDirection = 'column'
-					const content = card.querySelector('.cffff')
-					if (content) content.style.display = 'none'
-				})
-
-				const first = cards[0]
-				if (first) {
-					const content = first.querySelector('.cffff')
-					if (content) content.style.display = 'flex'
-					first.style.opacity = '1'
-					first.style.background = '#140B01'
-					first.style.transform = 'translateX(-50%)'
-					first.style.zIndex = '10'
-				}
+				const totalCards = cards.length
+				const maxHeight = 260
+				const minHeight = 80
+				const scrollSegment = 260
 
 				ScrollTrigger.create({
-					trigger: roadmapWrapper.value,
-					start: 'center center',
-					end: `+=${totalScroll}`,
-					scrub: true,
+					trigger: roadmapInner.value,
+					start: 'top top',
+					end: `+=${scrollSegment * totalCards}`,
 					pin: roadmapSection.value,
+					scrub: false,
 					invalidateOnRefresh: true,
-					snap: {
-						snapTo: 1 / (cards.length - 1),
-						duration: { min: 0.2, max: 0.4 },
-						ease: 'power1.inOut',
-					},
-					onUpdate: self => {
-						const progress = self.progress
-						const activeIdx = Math.round(progress * (cards.length - 1))
+				})
 
-						Array.from(cards).forEach((card, index) => {
-							const content = card.querySelector('.cffff')
+				Array.from(cards).forEach((card, i) => {
+					const content = card.querySelector('.card-content')
 
-							if (index === activeIdx) {
-								card.style.opacity = '1'
-								card.style.background = '#140B01'
-								card.style.zIndex = '10'
-								card.style.transform = 'translateX(-50%))'
-								if (content) content.style.display = 'flex'
-							} else {
-								if (content) content.style.display = 'none'
+					if (i >= 3) {
+						card.style.height = `${maxHeight}px`
 
-								card.style.opacity = '0.4'
-								card.style.background = 'rgba(255,255,255,0.2)'
-								card.style.zIndex = '1'
-								card.style.transform = 'translateX(-50%)'
-							}
-						})
+						restTitle.style.visibility = 'visible'
+						return
+					}
 
-						const offsetY = -progress * ((cards.length - 1) * spacing)
-						gsap.to(roadmapInner.value, {
-							y: offsetY,
-							duration: 0,
-							ease: 'none',
-						})
-					},
+					card.style.height = `${maxHeight}px`
+
+					const start = i * scrollSegment
+					const end = start + scrollSegment
+
+					ScrollTrigger.create({
+						trigger: roadmapWrapper.value,
+						start: () => `${start}px`,
+						end: () => `${end}px`,
+						scrub: true,
+						onUpdate: self => {
+							const progress = self.progress
+							const height = maxHeight - progress * (maxHeight - minHeight)
+							card.style.height = `${height}px`
+
+							content.style.visibility = height < 140 ? 'hidden' : 'visible'
+						},
+					})
 				})
 			} else {
 				const cardWidth =
@@ -119,12 +84,16 @@ onMounted(() => {
 				const scrollSegment =
 					screenWidth < 700 ? 400 : screenWidth < 1024 ? 550 : 700
 
-				ScrollTrigger.create({
+				const fourthCard = roadmapInner.value.children[2]
+				const totalScrollWidth = fourthCard.offsetLeft + fourthCard.offsetWidth
+
+				const scrollTriggerInstance = ScrollTrigger.create({
 					trigger: roadmapInner.value,
 					start: 'bottom bottom',
-					end: `+=${scrollSegment * cards.length}`,
+					end: () => `+=${totalScrollWidth}`,
 					pin: roadmapSection.value,
 					scrub: false,
+					invalidateOnRefresh: true,
 				})
 
 				Array.from(cards).forEach((card, i) => {
@@ -143,15 +112,22 @@ onMounted(() => {
 
 					card.style.width = `${cardWidth}px`
 
+					let lastWidth = cardWidth
+
 					ScrollTrigger.create({
 						trigger: roadmapWrapper.value,
 						start: () => `${start}px`,
 						end: () => `${end}px`,
 						scrub: true,
 						onUpdate: self => {
+							if (scrollTriggerInstance.progress === 1) {
+								return
+							}
+
 							const progress = self.progress
 							const width = cardWidth - progress * (cardWidth - collapsedWidth)
 							card.style.width = `${width}px`
+							lastWidth = width
 
 							number.style.visibility =
 								width < visibilityThresholds.number ? 'hidden' : 'visible'
@@ -196,7 +172,7 @@ onMounted(() => {
 				</div>
 
 				<div
-					class="relative w-full overflow-hidden h-[100%] max-w-[1600px]"
+					class="relative w-full h-[100%] max-w-[1600px]"
 					style="scrollbar-width: none; -ms-overflow-style: none"
 				>
 					<div
@@ -204,15 +180,15 @@ onMounted(() => {
 						:class="
 							screenWidth < 640 ? 'flex flex-col' : 'flex whitespace-nowrap'
 						"
-						class="transition-transform duration-300 h-[100%] max-sm:h-[300px] max-sm:justify-center relative"
+						class="transition-transform duration-300 h-[100%] relative max-sm:h-auto"
 					>
 						<div
 							v-for="(plan, index) in Roadmap"
 							:key="index"
-							class="2xl:h-[500px] max-2xl:h-[390px] roadmap-card w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pt-[23px] max-sm:pb-[7px] max-sm:justify-center max-sm:gap-[80px] max-sm:border-none max-sm:shadow-none max-sm:px-0"
+							class="2xl:h-[500px] max-2xl:h-[390px] roadmap-card w-[520px] flex-shrink-0 px-8 pt-12 pb-4 flex-col items-start justify-between border-t border-[#564F48] bg-[#140B01] shadow-[0_-14px_14px_0_rgba(88,54,18,0.3)] flex max-lg:h-[320px] max-lg:w-[400px] max-lg:px-6 max-lg:pt-8 max-lg:pb-2 max-md:px-[20px] max-md:w-full max-sm:pb-[7px] max-sm:justify-between max-sm:border-t max-sm:border-[#564F48] max-sm:pt-[10px] max-sm:shadow-[0_-6.914px_6.914px_0_rgba(88,54,18,0.3)] max-sm:px-[15px] max-sm:h-full"
 						>
 							<div
-								class="h-[67px] cffff w-full justify-between flex max-lg:h-full max-sm:h-[72px] max-sm:border-t max-sm:border-[#564F48] max-sm:pt-[10px] max-sm:shadow-[0_-6.914px_6.914px_0_rgba(88,54,18,0.3)] max-sm:px-[15px]"
+								class="h-[67px] w-full justify-between flex max-lg:h-full max-sm:h-[72px]"
 							>
 								<div
 									class="flex flex-col justify-between max-lg:justify-normal h-[67px] max-lg:h-full max-sm:h-max"
@@ -250,7 +226,7 @@ onMounted(() => {
 								</div>
 							</div>
 							<div
-								class="w-full whitespace-normal text-gray-roadmap text-[14px] font-ibm-sans font-normal max-lg:w-full card-content max-sm:px-[15px]"
+								class="w-full whitespace-normal text-gray-roadmap text-[14px] font-ibm-sans font-normal max-lg:w-full card-content"
 							>
 								<template v-if="Array.isArray(plan.text)">
 									<ul class="list-disc list-inside max-xs:whitespace-normal">
