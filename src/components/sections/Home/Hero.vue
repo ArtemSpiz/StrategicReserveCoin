@@ -5,12 +5,12 @@ import Button from '../../ui/Button.vue'
 
 <template>
 	<div
-		class="2xl:h-[80vh] bg-hero-pattern max-2xl:h-screen w-full bg-no-repeat bg-cover relative overflow-hidden max-lg:bg-[right_-150px_top_0] max-md:bg-cover max-sm:[height:calc(100vh+64px)] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
+		class="2xl:h-[80vh] bg-hero-pattern max-2xl:h-screen max-2xl:min-h-[620px] w-full bg-no-repeat bg-cover relative overflow-hidden max-lg:bg-[right_-150px_top_0] max-md:bg-cover max-sm:[height:calc(100vh+64px)] max-sm:bg-hero-pattern-mobil max-sm:bg-bottom max-sm:bg-ggg max-xs:bg-cover"
 	>
 		<Header />
 
 		<div
-			class="flex flex-col gap-14 px-16 w-[750px] py-[100px] max-2xl:p-16 max-2xl:w-[630px] max-lg:w-[520px] max-lg:px-[20px] max-lg:py-[45px] max-md:w-[450px] max-sm:w-full max-sm:items-center max-sm:text-center max-sm:gap-8 max-xs:py-[25px]"
+			class="flex flex-col gap-14 px-16 w-[750px] max-2xl:p-16 max-2xl:w-[630px] max-lg:w-[520px] max-lg:px-[20px] max-lg:py-[45px] max-md:w-[450px] max-sm:w-full max-sm:items-center max-sm:text-center max-sm:gap-8 max-xs:py-[25px]"
 		>
 			<div class="flex flex-col gap-6 max-sm:w-[400px] max-xs:w-full">
 				<div

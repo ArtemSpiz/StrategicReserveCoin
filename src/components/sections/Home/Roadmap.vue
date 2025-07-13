@@ -6,10 +6,10 @@ import Button from '@/components/ui/Button.vue'
 <template>
 	<div>
 		<div
-			class="2xl:h-[80vh] max-2xl:h-full bg-roadmap-pattern bg-no-repeat bg-ggg max-[1350px]:bg-[right_-150px_top_0] max-lg:bg-[right_-100px_top_0] max-md:bg-[url('@/assets/img/roadmapBgMobil.png')] max-md:bg-center max-md:h-[600px]"
+			class="2xl:h-[80vh] max-2xl:h-full bg-roadmap-pattern bg-no-repeat bg-ggg max-lg:bg-cover max-lg:bg-right max-md:bg-[url('@/assets/img/roadmapBgMobil.png')] max-md:bg-ggg max-md:bg-bottom max-md:h-[700px] max-sm:h-[600px] max-xs:bg-contain"
 		>
 			<div
-				class="pl-[158px] pb-[230px] justify-center flex flex-col items-start text-start gap-12 max-[1300px]:pl-[100px] max-xl:px-[40px] max-md:gap-8 max-md:px-[30px] max-md:pb-0 max-sm:px-[20px] max-md:justify-start max-md:items-center max-md:text-center max-xs:bg-contain"
+				class="pl-[158px] pb-[230px] justify-center flex flex-col items-start text-start gap-12 max-[1300px]:pl-[100px] max-xl:px-[40px] max-md:gap-8 max-lg:pb-[100px] max-md:px-[30px] max-md:pb-0 max-sm:px-[20px] max-md:justify-start max-md:items-center max-md:text-center max-xs:bg-contain"
 			>
 				<div
 					class="flex flex-col gap-4 self-stretch max-w-[480px] max-md:w-full max-md:self-auto pt-[140px] max-md:pt-0"

@@ -7,7 +7,7 @@ import tokenomicsTopMobil from '@/assets/img/tokenomicsTopMobil.png'
 import tokenomicsBottomMobil from '@/assets/img/tokenomicsBottomMobil.png'
 import tokenomicsBottomLeftMobil from '@/assets/img/tokenomicsBottomLeftMobil.png'
 
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import Button from '@/components/ui/Button.vue'
 
 const hoveredSegment = ref(null)
@@ -20,6 +20,42 @@ const onLeave = () => {
 }
 
 const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
+
+const count = ref(0)
+const duration = 2500
+const target = 100_000_000
+const formattedCount = computed(() => count.value.toLocaleString('en-US'))
+
+const animateCounter = () => {
+	let start = null
+
+	const step = timestamp => {
+		if (!start) start = timestamp
+		const progress = Math.min((timestamp - start) / duration, 1)
+		count.value = Math.floor(progress * target)
+		if (progress < 1) requestAnimationFrame(step)
+	}
+
+	requestAnimationFrame(step)
+}
+
+const counterBlock = ref(null)
+
+onMounted(() => {
+	const observer = new IntersectionObserver(
+		entries => {
+			if (entries[0].isIntersecting) {
+				animateCounter()
+				observer.disconnect()
+			}
+		},
+		{ threshold: 0.5 }
+	)
+
+	if (counterBlock.value) {
+		observer.observe(counterBlock.value)
+	}
+})
 </script>
 
 <template>
@@ -320,6 +356,7 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 
 		<div class="pb-[100px] max-md:pb-[80px]">
 			<div
+				ref="counterBlock"
 				class="w-[545px] h-[270px] flex flex-col justify-center items-center gap-[32px] rounded-[4px] max-md:w-[350px] max-md:h-[173px] max-md:gap-[20px]"
 				style="
 					border: 0.5px solid #fff;
@@ -342,7 +379,7 @@ const segmentColors = ['#F64340', '#F77C32', '#E7E7E7', '#F7C530']
 					<div
 						class="text-white font-ibm-mono text-[40px] font-medium leading-[73%] max-lg:text-[35px] max-md:text-[30px] max-sm:text-[25px] max-md:font-normal"
 					>
-						0,000,000,000
+						{{ formattedCount }}
 					</div>
 				</div>
 

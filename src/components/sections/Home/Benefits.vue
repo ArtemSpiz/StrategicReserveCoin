@@ -26,7 +26,7 @@ import BenefitsVideoMobil3 from '@/assets/img/BenefitsVideoMobil3.MOV'
 			class="max-w-[1600px] grid grid-cols-2 custom-xl:grid-cols-9 gap-4 text-white custom-xl:p-12 w-full max-lg:flex max-lg:flex-col"
 		>
 			<div
-				class="col-span-1 overflow-hidden relative custom-xl:col-span-5 border border-benefits bg-[#150F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
+				class="col-span-1 overflow-hidden relative custom-xl:col-span-5 border border-benefits bg-[#140F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
 				style="box-shadow: inset 0 0 14px rgba(88, 54, 18, 0.3)"
 			>
 				<component
@@ -60,7 +60,7 @@ import BenefitsVideoMobil3 from '@/assets/img/BenefitsVideoMobil3.MOV'
 			</div>
 
 			<div
-				class="relative overflow-hidden col-span-1 custom-xl:col-span-4 border border-benefits bg-[#150F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
+				class="relative overflow-hidden col-span-1 custom-xl:col-span-4 border border-benefits bg-[#140F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
 				style="box-shadow: inset 0 0 14px rgba(88, 54, 18, 0.3)"
 			>
 				<component
@@ -94,7 +94,7 @@ import BenefitsVideoMobil3 from '@/assets/img/BenefitsVideoMobil3.MOV'
 			</div>
 
 			<div
-				class="relative overflow-hidden col-span-1 custom-xl:col-span-4 border border-benefits bg-[#150F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
+				class="relative overflow-hidden col-span-1 custom-xl:col-span-4 border border-benefits bg-[#140F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
 				style="box-shadow: inset 0 0 14px rgba(88, 54, 18, 0.3)"
 			>
 				<component
@@ -135,7 +135,7 @@ import BenefitsVideoMobil3 from '@/assets/img/BenefitsVideoMobil3.MOV'
 			</div>
 
 			<div
-				class="relative overflow-hidden col-span-1 custom-xl:col-span-5 border border-benefits bg-[#150F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
+				class="relative overflow-hidden col-span-1 custom-xl:col-span-5 border border-benefits bg-[#140F02] h-[285px] p-6 flex flex-col gap-4 max-lg:col-span-full max-md:p-4"
 				style="box-shadow: inset 0 0 14px rgba(88, 54, 18, 0.3)"
 			>
 				<component

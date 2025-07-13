@@ -18,11 +18,11 @@ function toggleFAQ(index) {
 	<div
 		class="relative flex items-end justify-between max-md:justify-center max-xl:gap-10 max-xl:px-[40px] max-md:gap-8 max-md:px-[30px] max-sm:px-[20px]"
 	>
-		<div class="max-md:hidden">
+		<div class="max-lg:hidden">
 			<img loading="lazy" decoding="async" :src="LeftGold" alt="LeftGold" />
 		</div>
 
-		<div class="flex flex-col gap-12 items-center justify-center">
+		<div class="flex flex-col gap-12 items-center justify-center max-lg:w-full">
 			<div class="flex flex-col text-center gap-4">
 				<div
 					class="text-white text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col items-center max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[35px] max-xs:text-[32px]"
@@ -37,7 +37,7 @@ function toggleFAQ(index) {
 			</div>
 
 			<div
-				class="flex flex-col gap-6 items-center justify-center max-w-[800px] w-full max-md:w-full"
+				class="flex flex-col gap-6 items-center justify-center max-w-[800px] w-full max-lg:max-w-[600px] max-md:w-full"
 			>
 				<div
 					v-for="(FAQ, index) in FAQContent"
@@ -85,24 +85,22 @@ function toggleFAQ(index) {
 			</div>
 		</div>
 
-		<div class="max-md:hidden">
+		<div class="max-lg:hidden">
 			<img loading="lazy" decoding="async" :src="RightGold" alt="RightGold" />
 		</div>
 
-		<div class="max-md:hidden">
-			<div
-				class="absolute w-[5px] h-[5px] top-[8%] left-[10%] dot rounded-full bg-white opacity-[0.2] animate-pulse-custom"
-				style="filter: drop-shadow(0px 0px 6px #fff)"
-			></div>
-			<div
-				class="absolute w-[5px] h-[5px] top-[45%] left-[8%] dot rounded-full bg-white opacity-[0.2] animate-wave-sway"
-				style="filter: drop-shadow(0px 0px 6px #fff)"
-			></div>
-			<div
-				class="absolute w-[5px] h-[5px] top-[25%] right-[35%] dot rounded-full bg-white opacity-[0.2] animate-float"
-				style="filter: drop-shadow(0px 0px 6px #fff)"
-			></div>
-		</div>
+		<div
+			class="absolute w-[5px] h-[5px] top-[8%] left-[10%] dot rounded-full bg-white opacity-[0.2] animate-pulse-custom max-md:hidden"
+			style="filter: drop-shadow(0px 0px 6px #fff)"
+		></div>
+		<div
+			class="absolute w-[5px] h-[5px] top-[45%] left-[8%] dot rounded-full bg-white opacity-[0.2] animate-wave-sway max-md:hidden"
+			style="filter: drop-shadow(0px 0px 6px #fff)"
+		></div>
+		<div
+			class="absolute w-[5px] h-[5px] top-[25%] right-[35%] dot rounded-full bg-white opacity-[0.2] animate-float max-md:hidden"
+			style="filter: drop-shadow(0px 0px 6px #fff)"
+		></div>
 	</div>
 </template>
 

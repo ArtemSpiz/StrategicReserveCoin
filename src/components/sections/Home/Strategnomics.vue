@@ -102,7 +102,10 @@ function copyToClipboard() {
 					</div>
 				</div>
 
-				<div class="flex flex-col justify-center items-center gap-2">
+				<div
+					@click="copyToClipboard"
+					class="flex flex-col justify-center items-center gap-2 cursor-pointer"
+				>
 					<div
 						class="text-[14px] font-ibm-sans text-gray-text font-medium leading-4"
 					>
@@ -120,7 +123,7 @@ function copyToClipboard() {
 						<component
 							@click="copyToClipboard"
 							:is="StrategnomicsDoc"
-							class="cursor-pointer max-md:w-[25px] max-md:h-[25px] max-sm:w-16px max-sm:h-16px"
+							class="max-md:w-[25px] max-md:h-[25px] max-sm:w-16px max-sm:h-16px"
 						/>
 					</div>
 				</div>

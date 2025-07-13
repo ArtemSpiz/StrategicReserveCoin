@@ -38,26 +38,39 @@ onMounted(() => {
 				const minHeight = 80
 				const scrollSegment = 260
 
+				const targetCardIndex = 3
+				const scrollEnd = scrollSegment * targetCardIndex
+
 				ScrollTrigger.create({
-					trigger: roadmapInner.value,
+					trigger: roadmapSection.value,
 					start: 'top top',
-					end: `+=${scrollSegment * totalCards}`,
+					end: `${scrollEnd}px`,
 					pin: roadmapSection.value,
 					scrub: false,
 					invalidateOnRefresh: true,
+					pinSpacing: false,
 				})
 
 				Array.from(cards).forEach((card, i) => {
 					const content = card.querySelector('.card-content')
 
-					if (i >= 3) {
-						card.style.height = `${maxHeight}px`
+					card.style.height = `${maxHeight}px`
 
-						restTitle.style.visibility = 'visible'
+					if (i === totalCards - 1) {
+						ScrollTrigger.create({
+							trigger: roadmapWrapper.value,
+							start: () => `${(i - 1) * scrollSegment}px`,
+							end: () => `${(i + 0.5) * scrollSegment}px`,
+							scrub: true,
+							onUpdate: self => {
+								const progress = self.progress
+								card.style.position = 'relative'
+								card.style.zIndex = '1'
+								card.style.transform = `translateY(-${progress * 160}px)`
+							},
+						})
 						return
 					}
-
-					card.style.height = `${maxHeight}px`
 
 					const start = i * scrollSegment
 					const end = start + scrollSegment
@@ -71,7 +84,6 @@ onMounted(() => {
 							const progress = self.progress
 							const height = maxHeight - progress * (maxHeight - minHeight)
 							card.style.height = `${height}px`
-
 							content.style.visibility = height < 140 ? 'hidden' : 'visible'
 						},
 					})
@@ -84,13 +96,10 @@ onMounted(() => {
 				const scrollSegment =
 					screenWidth < 700 ? 400 : screenWidth < 1024 ? 550 : 700
 
-				const fourthCard = roadmapInner.value.children[2]
-				const totalScrollWidth = fourthCard.offsetLeft + fourthCard.offsetWidth
-
-				const scrollTriggerInstance = ScrollTrigger.create({
-					trigger: roadmapInner.value,
+				ScrollTrigger.create({
+					trigger: roadmapWrapper.value,
 					start: 'bottom bottom',
-					end: () => `+=${totalScrollWidth}`,
+					end: `+=${2000}`,
 					pin: roadmapSection.value,
 					scrub: false,
 					invalidateOnRefresh: true,
@@ -112,34 +121,38 @@ onMounted(() => {
 
 					card.style.width = `${cardWidth}px`
 
-					let lastWidth = cardWidth
-
 					ScrollTrigger.create({
 						trigger: roadmapWrapper.value,
 						start: () => `${start}px`,
 						end: () => `${end}px`,
 						scrub: true,
 						onUpdate: self => {
-							if (scrollTriggerInstance.progress === 1) {
-								return
-							}
-
 							const progress = self.progress
-							const width = cardWidth - progress * (cardWidth - collapsedWidth)
-							card.style.width = `${width}px`
-							lastWidth = width
+							const width =
+								progress < 1
+									? cardWidth - progress * (cardWidth - collapsedWidth)
+									: collapsedWidth
 
-							number.style.visibility =
-								width < visibilityThresholds.number ? 'hidden' : 'visible'
-							content.style.visibility =
-								width < visibilityThresholds.content ? 'hidden' : 'visible'
-							restTitle.style.visibility =
-								width < visibilityThresholds.title ? 'hidden' : 'visible'
+							card.style.width = `${width}px`
+
+							const isVisible = width >= visibilityThresholds.content
+							content.style.opacity = isVisible ? '1' : '0'
+							content.style.pointerEvents = isVisible ? 'auto' : 'none'
+
+							number.style.opacity =
+								width >= visibilityThresholds.number ? '1' : '0'
+							number.style.pointerEvents =
+								width >= visibilityThresholds.number ? 'auto' : 'none'
+
+							restTitle.style.opacity =
+								width >= visibilityThresholds.title ? '1' : '0'
+							restTitle.style.pointerEvents =
+								width >= visibilityThresholds.title ? 'auto' : 'none'
 						},
 					})
 				})
 			}
-		}, roadmapWrapper)
+		}, roadmapWrapper.value)
 
 		onBeforeUnmount(() => {
 			ctx.revert()
@@ -150,7 +163,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<div ref="roadmapWrapper" class="relative w-full h-[100%]">
+	<div ref="roadmapWrapper" class="relative w-full h-[100%] max-sm:pb-[50px]">
 		<section ref="roadmapSection" class="w-full overflow-hidden">
 			<div
 				class="flex flex-col items-center gap-[48px] max-xl:gap-10 max-md:gap-8 max-sm:gap-6"
