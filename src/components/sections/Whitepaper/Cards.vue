@@ -4,13 +4,13 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg11.png";
 const Cards = [
   {
     background: "#140B01",
-    position: "top-20 left-[20%] rotate-[-15deg] max-md:left-0",
+    position: "top-20 left-[10%] rotate-[-15deg] max-md:left-0",
     title: "Fixed Supply with Conditional Expansion",
     subtitle:
       "SRCOIN operates with a fixed supply released through predefined phases and milestones. This Strategnomics relies on time-based evaluation checkpoints, predefined milestone conditions and binary outcomes, release or permanent burn",
   },
   {
-    position: "top-20 right-[25%] rotate-[15deg] max-md:right-0",
+    position: "top-20 right-[20%] rotate-[15deg] max-md:right-0",
     background:
       "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(224, 144, 38, 0.32), rgba(224, 144, 38, 0.32))",
     title: "Governance-Aligned Supply Oversight",
@@ -19,7 +19,7 @@ const Cards = [
   },
   {
     position:
-      "bottom-[30%] left-[20%] rotate-[-20deg] max-md:left-0 max-md:rotate-[-14deg]",
+      "bottom-[30%] left-[15%] rotate-[-20deg] max-md:left-0 max-md:rotate-[-14deg]",
 
     background: "#FFFFFF0D",
     title: "Long-Term and Generational Alignment",
@@ -28,7 +28,7 @@ const Cards = [
   },
   {
     position:
-      "bottom-20 left-[20%] rotate-[-10deg] max-md:left-0 max-md:bottom-10",
+      "bottom-20 left-[10%] rotate-[-10deg] max-md:left-0 max-md:bottom-10",
 
     background: "#140B01",
     title: "Integration with Satoshi Vault",
@@ -36,7 +36,7 @@ const Cards = [
       "Strategnomics operates in coordination with Satoshi Vault framework. The conditional supply releases governed under Strategnomics may be directed toward reserve-related objectives. This integration ensures that supply management, reserve discipline, and governance accountability remain aligned.",
   },
   {
-    position: "bottom-24 right-[20%] rotate-[15deg] max-md:right-0",
+    position: "bottom-24 right-[15%] rotate-[15deg] max-md:right-0",
 
     background: "#FFFFFF",
     white: true,
@@ -49,7 +49,7 @@ const Cards = [
 
 <template>
   <div
-    class="flex flex-col max-md:overflow-x-hidden relative gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover lg:bg-contain bg-no-repeat bg-center h-screen max-md:h-[120vh]"
+    class="flex flex-col overflow-x-hidden relative gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover lg:bg-contain bg-no-repeat bg-center h-screen max-md:h-[120vh]"
     :style="{ backgroundImage: `url(${Bg})` }"
   >
     <div
@@ -62,7 +62,7 @@ const Cards = [
       :style="{ background: card.background }"
     >
       <div
-        class="font-ibm-sans font-medium text-base max-md:text-xs"
+        class="font-ibm-sans font-medium text-xs"
         :class="card.white ? 'text-black' : 'text-white'"
       >
         {{ card.title }}

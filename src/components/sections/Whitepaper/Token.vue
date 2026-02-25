@@ -36,7 +36,7 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
         class="flex flex-col items-center text-center gap-6 w-full max-lg:gap-[32px]"
       >
         <div
-          class="flex gap-4 items-center justify-center self-stretch w-full max-lg:flex-col"
+          class="flex gap-4 items-center justify-center self-stretch w-full flex-col"
         >
           <div
             v-if="StrategnomicsCardsWhitepaper[0]"
@@ -93,11 +93,11 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
         </div>
 
         <div
-          class="max-w-[1600px] z-10 flex justify-between items-center relative w-full max-md:flex-col max-md:h-[550px]"
+          class="max-w-[1600px] z-10 flex justify-between items-center relative w-full flex-col h-[600px]"
         >
-          <div class="flex flex-col max-md:flex-row">
+          <div class="flex flex-row">
             <div
-              class="bg-[url('@/assets/img/LeftUp.png')] text-start bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/LeftUpMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
+              class="text-start bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full bg-[url('@/assets/img/LeftUpMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
             >
               <div
                 class="text-[24px] font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
@@ -114,10 +114,10 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
             </div>
 
             <div
-              class="bg-[url('@/assets/img/LeftDown.png')] z-10 bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/RightUpMobil.png')] max-md:items-end max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
+              class="z-10 bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full bg-[url('@/assets/img/RightUpMobil.png')] max-md:items-end max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
             >
               <div
-                class="text-[24px] font-ibm-sans text-start font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
+                class="text-[24px] font-ibm-sans text-end font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
               >
                 FUNLESS → SRCOIN Swap
               </div>
@@ -150,13 +150,13 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
               decoding="async"
               :src="StrategnomicsCoin"
               alt="StrategnomicsCoin"
-              class="w-[700px] h-[700px] max-w-none max-xl:w-[600px] max-xl:h-[600px] max-lg:w-[550px] max-lg:h-[550px] max-md:w-[400px] max-md:h-[400px] max-sm:w-[350px] max-sm:h-[350px]"
+              class="max-w-none w-[400px] h-[400px] max-sm:w-[350px] max-sm:h-[350px]"
             />
           </div>
 
-          <div class="flex flex-col max-md:flex-row">
+          <div class="flex flex-row">
             <div
-              class="bg-[url('@/assets/img/RigthUp.png')] max-md:text-start text-end bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/LeftDownMobil.png')] max-md:items-start max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
+              class="max-md:text-start justify-end text-start bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full bg-[url('@/assets/img/LeftDownMobil.png')] max-md:items-start max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
             >
               <div
                 class="text-[24px] font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
@@ -173,7 +173,7 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
             </div>
 
             <div
-              class="bg-[url('@/assets/img/RigthDown.png')] text-end bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/RightDownMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
+              class="text-end bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full bg-[url('@/assets/img/RightDownMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
             >
               <div
                 class="text-[24px] max-md:text-[12px] max-md:leading-none font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px]"

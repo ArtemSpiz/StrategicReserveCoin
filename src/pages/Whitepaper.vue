@@ -38,42 +38,45 @@ import FooterWhitepaper from "@/components/sections/Whitepaper/FooterWhitepaper.
 
 <template>
   <Hero />
-  <List :bg="Bg1" title="EXECUTIVE SUMMARY" :cards="Cards1" right />
-  <List :bg="Bg2" :cards="Cards2" />
-  <Executive />
-  <List :bg="Bg4" title="EXECUTIVE SUMMARY" :cards="Cards3" right />
-  <Vault />
-  <Governance />
-  <Model />
-  <Tiered />
-  <Community />
-  <ArrowsCards :bg="Bg10" :cards="ArrowCards1" />
-  <Cards />
-  <Token />
-  <Nominee />
-  <ArrowsCards :bg="Bg14" :cards="ArrowCards2" />
-  <Phased />
-  <Table
-    :bg="Bg16"
-    title="ROADMAP"
-    subtitle="SRCOIN’s roadmap follows a community-first, migration-led progression."
-    :info-table="[RoadmapPhase1]"
-    Arrow
-  />
 
-  <Table :bg="Bg17" :info-table="[RoadmapPhase2]" Arrow />
+  <div class="max-w-[700px] mx-auto">
+    <List :bg="Bg1" title="EXECUTIVE SUMMARY" :cards="Cards1" right />
+    <List :bg="Bg2" :cards="Cards2" />
+    <Executive />
+    <List :bg="Bg4" title="EXECUTIVE SUMMARY" :cards="Cards3" right />
+    <Vault />
+    <Governance />
+    <Model />
+    <Tiered />
+    <Community />
+    <ArrowsCards :bg="Bg10" :cards="ArrowCards1" />
+    <Cards />
+    <Token />
+    <Nominee />
+    <ArrowsCards :bg="Bg14" :cards="ArrowCards2" />
+    <Phased />
+    <Table
+      :bg="Bg16"
+      title="ROADMAP"
+      subtitle="SRCOIN’s roadmap follows a community-first, migration-led progression."
+      :info-table="[RoadmapPhase1]"
+      Arrow
+    />
 
-  <Table :bg="Bg18" :info-table="[RoadmapPhase3]" />
+    <Table :bg="Bg17" :info-table="[RoadmapPhase2]" Arrow />
 
-  <List
-    :bg="Bg19"
-    title="Risks and Disclosures"
-    subtitle="SRCOIN involves material risks, including but not limited to the following:"
-    :cards="Cards4"
-    right
-  />
-  <List :bg="Bg20" :cards="Cards5" />
-  <FooterWhitepaper />
+    <Table :bg="Bg18" :info-table="[RoadmapPhase3]" />
+
+    <List
+      :bg="Bg19"
+      title="Risks and Disclosures"
+      subtitle="SRCOIN involves material risks, including but not limited to the following:"
+      :cards="Cards4"
+      right
+    />
+    <List :bg="Bg20" :cards="Cards5" />
+    <FooterWhitepaper />
+  </div>
 </template>
 
 <style scoped></style>

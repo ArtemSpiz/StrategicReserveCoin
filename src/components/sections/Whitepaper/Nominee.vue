@@ -108,7 +108,7 @@ const cards = [
         v-for="card in cards"
         :key="card.title"
         :class="[
-          'relative overflow-hidden rounded-[24px] max-md:rounded-md p-8 max-md:p-3 max-lg:p-4 border border-white/10 text-[14px] leading-relaxed flex flex-col justify-between',
+          'relative overflow-hidden rounded-md p-3  border border-white/10 text-[14px] leading-relaxed flex flex-col justify-between',
           card.layoutClasses,
           card.variant === 'dark' &&
             'bg-[radial-gradient(26.47%_45.93%_at_82.59%_87.72%,#F0AB34_0%,rgba(25,15,4,0)_100%)]',
@@ -147,8 +147,8 @@ const cards = [
           </ul>
 
           <div
-            class="absolute right-[-8px] bottom-0 w-[120px] max-md:w-[50px] h-auto"
-            :class="card.variant === 'dark' && 'w-[160px] max-md:w-[100px]'"
+            class="absolute right-[-8px] bottom-0 w-[50px] h-auto"
+            :class="card.variant === 'dark' && 'w-[100px]'"
           >
             <img v-if="card.image" :src="card.image" :alt="card.title" />
           </div>
