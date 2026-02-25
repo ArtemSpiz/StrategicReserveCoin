@@ -42,7 +42,7 @@ import Coins from "@/assets/img/WhitepaperImgs/Coins3.png";
     </div>
 
     <div
-      class="w-[300px] absolute bottom-10 z-0 pointer-events-none right-1/2 translate-x-1/2 h-auto"
+      class="w-[300px] absolute bottom-2 max-md:hidden z-0 pointer-events-none right-1/2 translate-x-1/2 h-auto"
     >
       <img :src="Coins" alt="Coins" />
     </div>

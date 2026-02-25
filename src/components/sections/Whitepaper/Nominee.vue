@@ -128,7 +128,7 @@ const cards = [
             <h3
               class="font-ibm-mono text-[22px] max-md:text-base font-medium text-white"
               :class="{
-                'text-[#1B130B]': card.variant === 'white',
+                '!text-[#1B130B]': card.variant === 'white',
               }"
             >
               {{ card.title }}
@@ -138,7 +138,7 @@ const cards = [
           <ul
             class="flex text-sm max-md:text-[10px] flex-col gap-1.5 list-disc pl-5 text-[#FFFFFF80]"
             :class="{
-              'text-[#140B0180]': card.variant === 'white',
+              '!text-[#140B0180]': card.variant === 'white',
             }"
           >
             <li v-for="line in card.lines" :key="line">

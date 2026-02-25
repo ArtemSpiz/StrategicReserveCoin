@@ -26,7 +26,7 @@ import Cards from "@/assets/img/WhitepaperImgs/Cards7.png";
       </div>
     </div>
 
-    <div class="w-[400px] h-auto">
+    <div class="max-w-[600px] h-auto">
       <img :src="Cards" />
     </div>
   </div>
