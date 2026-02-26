@@ -1,48 +1,47 @@
 export const DiagramData = [
-	{
-		title: 'Launch Phase',
-		year: '2025',
-		quarter: 'Q1',
-		tasks: [
-			'Launch MVP',
-			'Enable AI Meme Detection',
-			'Start Presale & Token Launch',
-			'Open Early Access Dashboard',
-		],
-	},
-	{
-		title: 'Growth Phase',
-		year: '2025',
-		quarter: 'Q2',
-		tasks: [
-			'Activate Reward System',
-			'Roll Out Referral & Booster Programs',
-			'Launch Leaderboards & Gamification',
-			'Introduce Community Challenges',
-		],
-	},
-	{
-		title: 'Community Empowerment',
-		year: '2025',
-		quarter: 'Q3',
-		tasks: [
-			'Expand marketing with influencers & meme contests',
-			'List on more DEXs & mid-tier CEXs',
-			'Launch meme leaderboard with voting',
-			'Release AI-powered meme generator',
-			'Partner with meme-centric communities',
-		],
-	},
-	{
-		title: 'Stabilization',
-		year: '2025',
-		quarter: 'Q4',
-		tasks: [
-			'Launch Meme Hall of Fame ',
-			'Introduce long-term staking or meme royalties',
-			'Establish community treasury via DAO',
-			'Transition to full community governance',
-			'Open-source core tools & AI models',
-		],
-	},
-]
+  {
+    title: "Foundation & Migration",
+    year: "COMPLETED",
+    quarter: "Q1",
+    tasks: [
+      "FUNLESS launched as community seed layer",
+      "Airdrops, Zealy campaigns & social building",
+      "SRCOIN smart contract developed & audited",
+      "FUNLESS → SRCOIN swap infrastructure deployed & tested",
+    ],
+  },
+  {
+    title: "Governance & Vault Activation",
+    year: "IN PROGRESS",
+    quarter: "Q2",
+    tasks: [
+      "Governance framework activation",
+      "NFT tier deployment & onboarding",
+      "Initial proposals & voting cycles",
+      "Vault oversight & reporting",
+      "First milestone evaluation prep",
+    ],
+  },
+  {
+    title: "Milestone-Driven Expansion",
+    year: "CONDITIONAL",
+    quarter: "Q3",
+    tasks: [
+      "Exchange listings & marketing activation",
+      "Community rewards activation",
+      "RWA integrations & utility projects",
+      "OR: tokens burn & maintenance mode if missed",
+    ],
+  },
+  {
+    title: "Stabilization",
+    year: "2025",
+    quarter: "Q4",
+    tasks: [
+      "Protocol stability focus",
+      "Scarcity reinforced via burns",
+      "Stewardship mode if milestones missed",
+      "Ecosystem expansion if milestones met",
+    ],
+  },
+];

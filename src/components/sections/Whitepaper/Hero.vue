@@ -9,13 +9,15 @@ import LogoTokenomics from "@/assets/img/logoTokenomics.png";
   >
     <Header />
 
-    <div class="flex flex-col gap-2 justify-center items-center pt-10">
+    <div
+      class="flex flex-col h-[calc(100%-120px)] lg:justify-between gap-2 justify-center items-center pt-10"
+    >
       <div
         class="text-white font-ibm-mono text-[64px] tracking-widest leading-[64px] font-normal max-2xl:text-[60px] max-lg:text-[50px] max-sm:text-[44px] max-sm:leading-[100%]"
       >
         Whitepaper
       </div>
-      <div class="w-[50px] h-auto">
+      <div class="w-[50px] lg:w-[100px] h-auto">
         <img :src="LogoTokenomics" alt="logo" />
       </div>
     </div>

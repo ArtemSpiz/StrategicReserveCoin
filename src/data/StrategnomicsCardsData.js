@@ -9,7 +9,7 @@ export const StrategnomicsCards = [
   },
   {
     title: "Supply",
-    subtitle: "2 Billion $SRC Tokens",
+    subtitle: "1,000,000,000 SRCOIN",
   },
 ];
 

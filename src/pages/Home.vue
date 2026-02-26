@@ -42,7 +42,7 @@ watch(
     <Traders id="about" />
     <Benefits id="benefits" />
     <div
-      class="flex flex-col gap-[160px] max-md:gap-[130px] max-sm:gap-[108px]"
+      class="flex flex-col gap-[120px] max-md:gap-[110px] max-sm:gap-[108px]"
     >
       <Mission id="mission" />
       <RoadmapCards id="how-it-works" />
