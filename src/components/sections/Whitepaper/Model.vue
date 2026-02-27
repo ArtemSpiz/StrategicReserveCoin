@@ -14,7 +14,7 @@ import DesktopCards from "@/assets/img/WhitepaperImgs/DesktopCards7.png";
     <div
       class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
     />
-    
+
     <div class="flex gap-5 items-start w-full lg:flex-col">
       <div
         class="text-white max-w-[300px] max-md:max-w-[200px] uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
@@ -38,7 +38,7 @@ import DesktopCards from "@/assets/img/WhitepaperImgs/DesktopCards7.png";
       <img :src="Cards" />
     </div>
     <div class="w-auto max-lg:hidden absolute top-0 right-0 h-full">
-      <img :src="DesktopCards" />
+      <img :src="DesktopCards"  class="w-full h-full object-cover"/>
     </div>
   </div>
 </template>
