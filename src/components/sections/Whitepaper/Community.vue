@@ -123,12 +123,15 @@ const cards = [
       >
         <span
           v-if="card.title"
-          :class="['!text-xs font-ibm-mono', card.titleClass]"
+          :class="['!text-xs lg:!text-xl font-ibm-mono', card.titleClass]"
           >{{ card.title }}</span
         >
         <span
           v-if="card.subtitle"
-          :class="['font-ibm-mono leading-snug !text-sm max-md:max-w-none', card.subtitleClass]"
+          :class="[
+            'font-ibm-mono leading-snug lg:!text-lg !text-sm max-md:max-w-none',
+            card.subtitleClass,
+          ]"
           >{{ card.subtitle }}</span
         >
         <span v-if="card.subtitleExtra" :class="card.subtitleExtraClass">{{

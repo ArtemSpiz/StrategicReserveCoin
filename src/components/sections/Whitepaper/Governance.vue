@@ -1,5 +1,8 @@
 <script setup>
 import Bg from "@/assets/img/WhitepaperImgs/Bg6.png";
+import BgDesktop from "@/assets/img/WhitepaperImgs/DesktopBg6.png";
+
+const isMobile = window.innerWidth < 768;
 
 const Cards = [
   {
@@ -21,8 +24,10 @@ const Cards = [
 
 <template>
   <div
-    class="flex flex-col gap-5  bg-[#110A01] items-center h-screen p-20 lg:bg-contain max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
-    :style="{ backgroundImage: `url(${Bg})` }"
+    class="flex flex-col gap-5 bg-[#110A01] items-center h-screen p-20  max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
+    :style="{
+      backgroundImage: `url(${isMobile ? Bg : BgDesktop})`,
+    }"
   >
     <div class="flex flex-col items-center max-w-[500px]">
       <div

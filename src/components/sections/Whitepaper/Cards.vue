@@ -1,5 +1,7 @@
 <script setup>
 import Bg from "@/assets/img/WhitepaperImgs/Bg11.png";
+import DesktopBg from "@/assets/img/WhitepaperImgs/DesktopBg11.png";
+const isMobile = window.innerWidth < 768;
 
 const Cards = [
   {
@@ -10,7 +12,7 @@ const Cards = [
       "SRCOIN operates with a fixed supply released through predefined phases and milestones. This Strategnomics relies on time-based evaluation checkpoints, predefined milestone conditions and binary outcomes, release or permanent burn",
   },
   {
-    position: "top-20 right-[20%] rotate-[15deg] max-md:right-0",
+    position: "top-20 right-[15%] rotate-[15deg] max-md:right-0 ",
     background:
       "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(224, 144, 38, 0.32), rgba(224, 144, 38, 0.32))",
     title: "Governance-Aligned Supply Oversight",
@@ -50,25 +52,27 @@ const Cards = [
 <template>
   <div
     class="flex flex-col overflow-x-hidden relative gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover lg:bg-contain bg-no-repeat bg-center h-screen max-md:h-[120vh]"
-    :style="{ backgroundImage: `url(${Bg})` }"
+    :style="{
+      backgroundImage: `url(${isMobile ? Bg : DesktopBg})`,
+    }"
   >
     <div
       v-for="(card, i) in Cards"
       :key="i"
       :class="[
-        'border border-[#FFFFFF42] max-w-[250px] max-md:max-w-[200px] flex flex-col  rounded-xl overflow-hidden p-3 gap-2 absolute max-md:p-2',
+        'border border-[#FFFFFF42] lg:max-w-[400px] max-w-[250px] max-md:max-w-[200px] flex flex-col  rounded-xl overflow-hidden p-3 gap-2 absolute max-md:p-2',
         card.position,
       ]"
       :style="{ background: card.background }"
     >
       <div
-        class="font-ibm-sans font-medium text-xs"
+        class="font-ibm-sans font-medium text-xs lg:text-xl"
         :class="card.white ? 'text-black' : 'text-white'"
       >
         {{ card.title }}
       </div>
       <div
-        class="font-ibm-sans text-[10px]"
+        class="font-ibm-sans text-[10px] lg:text-sm"
         :class="card.white ? 'text-black' : 'text-white'"
       >
         {{ card.subtitle }}

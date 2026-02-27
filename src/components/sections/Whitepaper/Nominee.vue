@@ -148,7 +148,7 @@ const cards = [
 
           <div
             class="absolute right-[-8px] bottom-0 w-[50px] h-auto"
-            :class="card.variant === 'dark' && 'w-[100px]'"
+            :class="card.variant === 'dark' && '!w-[120px]'"
           >
             <img v-if="card.image" :src="card.image" :alt="card.title" />
           </div>

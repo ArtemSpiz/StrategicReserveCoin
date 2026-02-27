@@ -5,6 +5,9 @@ const props = defineProps({
   bg: {
     type: String,
   },
+  bgDesktop: {
+    type: String,
+  },
   title: {
     type: String,
   },
@@ -19,12 +22,16 @@ const props = defineProps({
     type: Boolean,
   },
 });
+
+const isMobile = window.innerWidth < 768;
 </script>
 
 <template>
   <div
-    class="relative flex flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat md:bg-ggg bg-center"
-    :style="{ backgroundImage: `url(${props.bg})` }"
+    class="relative flex flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat  bg-center"
+    :style="{
+      backgroundImage: `url(${isMobile ? props.bg : props.bgDesktop})`,
+    }"
   >
     <div class="flex gap-4 flex-col text-center items-center">
       <div
@@ -67,7 +74,7 @@ const props = defineProps({
               {{ phase.phase }}
             </div>
             <div
-              class="justify-center border-b border-[#5B544D] px-5 py-4 flex items-center font-ibm-mono text-xs sm:text-sm md:text-base text-white"
+              class="max-md:justify-center border-b border-[#5B544D] px-5 py-4 flex items-center font-ibm-mono text-xs sm:text-sm md:text-base text-white"
             >
               {{ phase.title }}
             </div>
@@ -75,7 +82,7 @@ const props = defineProps({
 
           <!-- Content -->
           <div
-            class="py-5 md:py-6 space-y-5 text-xs sm:text-sm md:text-base text-[#FFFFFF80] font-ibm-sans"
+            class="py-5 md:py-6 space-y-5 lg:text-base text-xs sm:text-sm md:text-base text-[#FFFFFF80] font-ibm-sans"
           >
             <p v-if="phase.description" class="px-5 md:px-6">
               {{ phase.description }}
@@ -88,7 +95,7 @@ const props = defineProps({
             >
               <div
                 v-if="section.heading"
-                class="font-semibold px-5 md:px-6 border-t border-b py-2 border-[#5B544D] w-full text-white text-sm md:text-base"
+                class="font-semibold lg:text-lg px-5 md:px-6 border-t border-b py-2 border-[#5B544D] w-full text-white text-sm md:text-base"
               >
                 {{ section.heading }}
               </div>

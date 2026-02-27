@@ -1,21 +1,20 @@
 <script setup>
-import StrategnomicsCheckMark from "@/assets/svg/StrategnomicsCheckMark.vue";
-import StrategnomicsMoney from "@/assets/svg/StrategnomicsMoney.vue";
-import StrategnomicsRewards from "@/assets/svg/StrategnomicsRewards.vue";
-import StrategnomicsTeam from "@/assets/svg/StrategnomicsTeam.vue";
-import StrategnomicsDoc from "@/assets/svg/StrategnomicsDoc.vue";
 import StrategnomicsCoin from "@/assets/img/StrategnomicsCoin.png";
-import Button from "@/components/ui/Button.vue";
 import { StrategnomicsCardsWhitepaper } from "@/data/StrategnomicsCardsData";
 import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
+const isMobile = window.innerWidth < 768;
 </script>
 
 <template>
   <div
     class="flex flex-col items-center justify-center gap-12 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 max-md:gap-5 bg-cover bg-no-repeat bg-bottom"
-    :style="{ backgroundImage: `url(${Bg})` }"
+    :style="{
+      backgroundImage: `url(${isMobile ? Bg : ''})`,
+    }"
   >
-    <div class="flex flex-col w-full items-start text-start gap-4">
+    <div
+      class="flex flex-col w-full lg:items-center lg:text-center items-start text-start gap-4"
+    >
       <div
         class="text-white text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col items-center max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[35px] max-xs:text-[32px]"
       >
@@ -36,7 +35,7 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
         class="flex flex-col items-center text-center gap-6 w-full max-lg:gap-[32px]"
       >
         <div
-          class="flex gap-4 items-center justify-center self-stretch w-full flex-col"
+          class="flex gap-4 items-center justify-center self-stretch w-full max-md:flex-col"
         >
           <div
             v-if="StrategnomicsCardsWhitepaper[0]"
@@ -93,19 +92,23 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
         </div>
 
         <div
-          class="max-w-[1600px] z-10 flex justify-between items-center relative w-full flex-col h-[600px]"
+          class="max-w-[1600px] flex justify-between items-center relative w-full max-md:flex-col max-md:h-[550px]"
         >
-          <div class="flex flex-row">
+          <div class="flex flex-col max-md:flex-row">
             <div
-              class="text-start bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full bg-[url('@/assets/img/LeftUpMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
+              class="bg-[url('@/assets/img/LeftUp.png')] bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/LeftUpMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
             >
+              <component
+                :is="StrategnomicsCheckMark"
+                class="max-lg:w-[30px] max-md:w-[16px] max-md:h-[16px]"
+              />
               <div
-                class="text-[24px] font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
+                class="text-[24px] max-md:leading-none text-start font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px]"
               >
                 Initial Supply and Migration
               </div>
               <div
-                class="text-[14px] max-md:text-[8px] max-md:leading-none font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
+                class="text-[14px] max-md:text-[8px] max-md:leading-none text-start font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
               >
                 SRCOIN launches with an initial supply of 150,000,000 SRCOIN,
                 created specifically to replace the existing FUNLESS supply
@@ -114,24 +117,29 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
             </div>
 
             <div
-              class="z-10 bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full bg-[url('@/assets/img/RightUpMobil.png')] max-md:items-end max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
+              class="bg-[url('@/assets/img/LeftDown.png')] bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-start p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/RightUpMobil.png')] max-md:items-end max-md:p-[24px] max-md:gap-1 max-md:w-[175px] max-md:h-[230px]"
             >
+              <component
+                :is="StrategnomicsMoney"
+                class="max-lg:w-[30px] max-md:w-[16px] max-md:h-[16px]"
+              />
+
               <div
-                class="text-[24px] font-ibm-sans text-end font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
+                class="text-[24px] max-md:leading-none text-end lg:text-start font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px]"
               >
                 FUNLESS → SRCOIN Swap
               </div>
               <div
-                class="text-[14px] max-md:text-[8px] max-md:leading-none font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
+                class="text-[14px] max-md:text-[8px] text-end max-md:leading-none lg:text-start font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
               >
-                <ul class="list-disc text-start pl-5 space-y-1">
+                <ul class="list-disc pl-5 space-y-1">
                   <li>
                     Current FUNLESS supply:
                     <span class="text-[#FFEA70]">500,000,000</span>
                   </li>
                   <li>
                     Swap rate:
-                    <span class="text-[#FFEA70]">1 FUNLESS = 0.3 SRCOIN</span>
+                    <span class="text-[#FFEA70]">1 FUNLESS = 0.3 SRCOIN</span>1
                   </li>
                   <li>
                     Total SRCOIN distributed via swap:
@@ -150,21 +158,26 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
               decoding="async"
               :src="StrategnomicsCoin"
               alt="StrategnomicsCoin"
-              class="max-w-none w-[400px] h-[400px] max-sm:w-[350px] max-sm:h-[350px]"
+              class="w-[500px] h-[500px] max-w-none max-xl:w-[600px] max-xl:h-[600px] max-lg:w-[550px] max-lg:h-[550px] max-md:w-[400px] max-md:h-[400px] max-sm:w-[350px] max-sm:h-[350px]"
             />
           </div>
 
-          <div class="flex flex-row">
+          <div class="flex flex-col max-md:flex-row">
             <div
-              class="max-md:text-start justify-end text-start bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full bg-[url('@/assets/img/LeftDownMobil.png')] max-md:items-start max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
+              class="bg-[url('@/assets/img/RigthUp.png')] bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/LeftDownMobil.png')] max-md:items-start max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
             >
+              <component
+                :is="StrategnomicsTeam"
+                class="max-lg:w-[30px] max-md:w-[16px] max-md:h-[16px]"
+              />
+
               <div
-                class="text-[24px] font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px] max-md:leading-none"
+                class="text-[24px] max-md:leading-none text-start lg:text-end font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px]"
               >
                 Satoshi Vault Allocation (Phase One)
               </div>
               <div
-                class="text-[14px] max-md:text-[8px] max-md:leading-none font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
+                class="text-[14px] max-md:text-[8px] text-start max-md:leading-none lg:text-end font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
               >
                 An additional 8,000,000 SRCOIN is reserved for Satoshi Vault
                 under strict, price-based conditions. On June 9, 2026, Satoshi
@@ -173,15 +186,20 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
             </div>
 
             <div
-              class="text-end bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full bg-[url('@/assets/img/RightDownMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
+              class="bg-[url('@/assets/img/RigthDown.png')] bg-ggg w-[395px] bg-no-repeat flex flex-col gap-2 items-end p-[32px] max-lg:w-full max-md:bg-[url('@/assets/img/RightDownMobil.png')] max-md:p-[24px] max-md:gap-1 max-md:justify-end max-md:w-[175px] max-md:h-[230px]"
             >
+              <component
+                :is="StrategnomicsRewards"
+                class="max-lg:w-[30px] max-md:w-[16px] max-md:h-[16px]"
+              />
+
               <div
-                class="text-[24px] max-md:text-[12px] max-md:leading-none font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px]"
+                class="text-[24px] max-md:leading-none text-end font-ibm-sans font-medium leading-[36px] text-white max-lg:text-[22px] max-md:text-[12px]"
               >
                 Phase Two Supply: Long-Term Governance Phase
               </div>
               <div
-                class="text-[14px] max-md:text-[8px] max-md:leading-none font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
+                class="text-[14px] max-md:text-[8px] max-md:leading-none text-end font-ibm-sans font-medium leading-4 text-gray-text pt-2 max-lg:text-[13px] max-md:pt-0"
               >
                 The remaining supply of 842,000,000 SRCOIN is allocated to Phase
                 Two, a long-term, milestone-based governance phase. The annual
@@ -193,23 +211,6 @@ import Bg from "@/assets/img/WhitepaperImgs/Bg12.png";
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="flex flex-col w-full text-center items-center gap-4">
-        <div
-          class="text-white md:text-[12px] text-[10px] font-ibm-mono font-normal flex flex-col items-center"
-        >
-          Phase Two Supply: Long-Term Governance Phase
-        </div>
-        <div
-          class="text-white max-md:text-[8px] max-md:leading-none text-[5px] font-ibm-sans ont-normal max-w-[400px]"
-        >
-          The remaining supply of 842,000,000 SRCOIN is allocated to Phase Two,
-          a long-term, milestone-based governance phase. The annual evaluation
-          is scheduled on December 9 of each year starting December 9, 2026,
-          Supply decisions occur once per year based on clearly defined price
-          milestones. At each annual checkpoint, a portion of Phase Two supply
-          is either released or permanently burned.
         </div>
       </div>
     </div>

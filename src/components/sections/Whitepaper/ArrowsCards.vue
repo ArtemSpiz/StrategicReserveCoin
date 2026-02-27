@@ -4,6 +4,9 @@ const props = defineProps({
   bg: {
     type: String,
   },
+  bgDesktop: {
+    type: String,
+  },
   title: {
     type: String,
   },
@@ -12,12 +15,16 @@ const props = defineProps({
     required: true,
   },
 });
+
+const isMobile = window.innerWidth < 768;
 </script>
 
 <template>
   <div
-    class="flex flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat bg-center lg:bg-contain max-md:bg-ggg"
-    :style="{ backgroundImage: `url(${props.bg})` }"
+    class="flex flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat bg-center max-md:bg-ggg"
+    :style="{
+      backgroundImage: `url(${isMobile ? props.bg : props.bgDesktop})`,
+    }"
   >
     <div
       v-if="props.title"
@@ -30,21 +37,21 @@ const props = defineProps({
         v-for="(card, i) in props.cards"
         :key="i"
         class="flex"
-        :class="card.right ? 'justify-end w-full' : ''"
+        :class="card.right ? 'justify-end w-full' : 'lg:ml-48'"
       >
-        <div class="w-[38px] min-w-[40px] pt-2 h-auto pr-5">
+        <div class="w-[38px] lg:w-[60px] min-w-[40px] pt-2 h-auto pr-5">
           <img :src="Arrow" />
         </div>
         <div class="flex flex-col gap-1 max-w-[330px] max-md:max-w-[240px]">
           <div
             v-if="card.title"
-            class="font-ibm-sans text-white max-w-[200px] uppercase font-medium text-base"
+            class="font-ibm-sans lg:text-xl text-white max-w-[200px] uppercase font-medium text-base"
           >
             {{ card.title }}
           </div>
           <div
             v-if="card.subtitles"
-            class="font-ibm-sans font-normal text-xs text-[#FFFFFF80]"
+            class="font-ibm-sans lg:text-lg lg:text-white font-normal text-xs text-[#FFFFFF80]"
           >
             <ul class="list-disc pl-5 space-y-1">
               <li v-for="(item, index) in card.subtitles" :key="index">
@@ -54,7 +61,7 @@ const props = defineProps({
           </div>
           <div
             v-if="card.subtitle"
-            class="font-ibm-sans font-normal text-xs text-[#FFFFFF80]"
+            class="font-ibm-sans lg:text-lg lg:text-white font-normal text-xs text-[#FFFFFF80]"
           >
             {{ card.subtitle }}
           </div>
