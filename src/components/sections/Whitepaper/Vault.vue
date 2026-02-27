@@ -7,11 +7,14 @@ const isMobile = window.innerWidth < 768;
 
 <template>
   <div
-    class="flex flex-col lg:items-start lg:text-start gap-5 bg-[#110A01] items-center text-center h-screen p-20 lg:bg-contain max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
+    class="flex flex-col relative overflow-hidden lg:items-start lg:text-start gap-5 bg-[#110A01] items-center text-center h-screen p-20 lg:bg-contain max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
     :style="{
       backgroundImage: `url(${isMobile ? Bg : BgDesktop})`,
     }"
   >
+    <div
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
+    />
     <div
       class="text-white uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
     >

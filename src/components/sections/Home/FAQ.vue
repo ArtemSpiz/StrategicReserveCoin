@@ -45,12 +45,12 @@ function toggleFAQ(index) {
           class="flex flex-col gap-4 text-left w-full"
         >
           <div
-            class="flex justify-between items-start gap-6 cursor-pointer"
+            class="flex justify-between items-start gap-6 cursor-pointer group"
             @click="toggleFAQ(index)"
           >
             <div class="flex flex-col gap-2">
               <div
-                class="text-[#EAEAEA] font-ibm-sans text-[18px] leading-[28px] font-medium"
+                class="text-[#EAEAEA] font-ibm-sans text-[18px] leading-[28px] font-medium transition-colors duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(247,140,46,0.5)]"
               >
                 {{ FAQ.title }}
               </div>
@@ -73,7 +73,7 @@ function toggleFAQ(index) {
 
             <component
               :is="opened[index] ? Minus : Plus"
-              class="w-[50px] flex-shrink-0 max-md:w-max"
+              class="w-[50px] flex-shrink-0 max-md:w-max transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_rgba(246,67,64,0.6)]"
             />
           </div>
 

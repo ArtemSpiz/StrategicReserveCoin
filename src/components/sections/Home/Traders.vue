@@ -189,9 +189,20 @@ const hLines = ref(generateLines(7));
         </div>
         <RouterLink
           to="/whitepaper"
-          class="h-10 px-6 py-[10px] border-white border-[1px] w-max rounded-full text-[14px] font-ibm-sans font-normal text-white"
+          class="relative overflow-hidden h-10 px-6 py-[10px] border-white border w-max rounded-full text-[14px] font-ibm-sans font-normal text-white transition-all duration-300 ease-out hover:border-white/70 hover:shadow-[0_6px_20px_rgba(255,255,255,0.1),0_0_0_1px_rgba(255,255,255,0.15)] active:translate-y-0 active:scale-[0.98] group"
         >
-          Read Whitepaper
+          <!-- fill -->
+          <span
+            class="absolute inset-0 rounded-full bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            aria-hidden="true"
+          />
+          <!-- shimmer -->
+          <span
+            class="absolute inset-0 rounded-full bg-[linear-gradient(105deg,transparent_30%,rgba(255,255,255,0.2)_50%,transparent_70%)] -translate-x-full transition-transform duration-500 group-hover:translate-x-full"
+            aria-hidden="true"
+          />
+          <!-- text -->
+          <span class="relative z-10">Read Whitepaper</span>
         </RouterLink>
       </div>
       <div class="w-[350px] h-[82px]">
