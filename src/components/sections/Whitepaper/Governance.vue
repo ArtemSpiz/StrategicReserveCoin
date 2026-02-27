@@ -24,24 +24,31 @@ const Cards = [
 
 <template>
   <div
-    class="flex flex-col gap-5 bg-[#110A01] items-center h-screen p-20  max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
+    class="flex flex-col gap-5 relative bg-[#110A01] items-center lg:h-[80vh] h-screen p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom lg:bg-bottom bg-no-repeat"
     :style="{
       backgroundImage: `url(${isMobile ? Bg : BgDesktop})`,
     }"
   >
-    <div class="flex flex-col items-center max-w-[500px]">
+    <div
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
+    />
+    <div
+      class="flex flex-col lg:flex-row lg:max-w-[1000px] items-center max-w-[500px]"
+    >
       <div
         v-for="(card, i) in Cards"
         :key="i"
         class="p-4 border border-transparent [border-image-source:linear-gradient(58.99deg,rgba(255,255,255,0.2)_55.8%,#E09026_99.88%)] [border-image-slice:1] shadow-md"
       >
-        <div class="font-ibm-sans pb-3 text-white font-medium text-base">
+        <div
+          class="font-ibm-sans lg:text-xl pb-3 text-white font-medium text-base"
+        >
           {{ card.title }}
         </div>
-        <div class="font-ibm-sans text-sm text-[#FFFFFFCC] pb-1">
+        <div class="font-ibm-sans lg:text-lg text-sm text-[#FFFFFFCC] pb-1">
           {{ card.text1 }}
         </div>
-        <div class="font-ibm-sans text-sm text-[#FFFFFFCC] pb-1">
+        <div class="font-ibm-sans lg:text-lg text-sm text-[#FFFFFFCC] pb-1">
           {{ card.text2 }}
         </div>
       </div>

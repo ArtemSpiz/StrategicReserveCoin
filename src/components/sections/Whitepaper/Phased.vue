@@ -22,11 +22,18 @@ const Cards = [
 
 <template>
   <div
-    class="flex flex-col gap-5 lg:gap-14 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom lg:bg-contain h-screen bg-no-repeat"
+    class="flex flex-col relative overflow-hidden gap-5 lg:gap-14 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom lg:bg-contain h-screen bg-no-repeat"
     :style="{
       backgroundImage: `url(${isMobile ? Bg : BgDesktop})`,
     }"
   >
+    <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-0"
+    />
+
+    <div
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
+    />
     <div class="flex gap-4">
       <div
         class="text-white max-w-[500px] max-md:max-w-[300px] uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[20px]"
@@ -41,7 +48,9 @@ const Cards = [
         :key="i"
         class="flex flex-1 max-w-[300px] gap-2"
       >
-        <div class="w-2 h-2 min-w-2 mt-1.5 bg-[#ECA02B] lg:min-w-3 lg:w-3 lg:h-3"></div>
+        <div
+          class="w-2 h-2 min-w-2 mt-1.5 bg-[#ECA02B] lg:min-w-3 lg:w-3 lg:h-3"
+        ></div>
         <div
           class="font-ibm-sans text-sm text-white lg:text-xl max-md:text-[10px]"
         >

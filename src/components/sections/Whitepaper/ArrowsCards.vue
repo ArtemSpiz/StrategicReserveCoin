@@ -51,7 +51,7 @@ const isMobile = window.innerWidth < 768;
           </div>
           <div
             v-if="card.subtitles"
-            class="font-ibm-sans lg:text-lg lg:text-white font-normal text-xs text-[#FFFFFF80]"
+            class="font-ibm-sans lg:text-lg font-normal text-xs text-[#FFFFFF80]"
           >
             <ul class="list-disc pl-5 space-y-1">
               <li v-for="(item, index) in card.subtitles" :key="index">
@@ -61,7 +61,7 @@ const isMobile = window.innerWidth < 768;
           </div>
           <div
             v-if="card.subtitle"
-            class="font-ibm-sans lg:text-lg lg:text-white font-normal text-xs text-[#FFFFFF80]"
+            class="font-ibm-sans lg:text-lg font-normal text-xs text-[#FFFFFF80]"
           >
             {{ card.subtitle }}
           </div>

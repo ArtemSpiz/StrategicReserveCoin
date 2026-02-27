@@ -5,7 +5,7 @@ export const StrategnomicsCards = [
   },
   {
     title: "Type",
-    subtitle: "SQL20",
+    subtitle: "SOL20",
   },
   {
     title: "Supply",

@@ -26,11 +26,14 @@ const Cards = [
 
 <template>
   <div
-    class="flex flex-col gap-5 items-center h-screen p-20 lg:bg-contain max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
+    class="flex flex-col gap-5 relative overflow-hidden items-center h-screen p-20 lg:bg-contain max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-bottom bg-no-repeat"
     :style="{
       backgroundImage: `url(${isMobile ? Bg : BgDesktop})`,
     }"
   >
+    <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-0"
+    />
     <div class="flex flex-col lg:text-center lg:items-center gap-4">
       <div
         class="text-white uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
@@ -63,7 +66,9 @@ const Cards = [
           :key="i"
           class="flex flex-1 lg:gap-3 flex-col border border-[#DDDDDD66] p-3 justify-between"
         >
-          <div class="text-[#FFFFFF80] lg:text-2xl font-ibm-sans font-medium text-sm">
+          <div
+            class="text-[#FFFFFF80] lg:text-2xl font-ibm-sans font-medium text-sm"
+          >
             {{ card.title }}
           </div>
           <div

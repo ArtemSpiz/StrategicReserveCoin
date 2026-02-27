@@ -5,8 +5,16 @@ import DesktopCards from "@/assets/img/WhitepaperImgs/DesktopCards7.png";
 
 <template>
   <div
-    class="flex flex-col relative h-screen max-md:overflow-x-hidden max-md:max-w-[100wv] gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat items-center"
+    class="flex flex-col relative overflow-hidden h-screen max-md:overflow-x-hidden max-md:max-w-[100wv] gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat items-center"
   >
+    <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-0"
+    />
+
+    <div
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
+    />
+    
     <div class="flex gap-5 items-start w-full lg:flex-col">
       <div
         class="text-white max-w-[300px] max-md:max-w-[200px] uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"

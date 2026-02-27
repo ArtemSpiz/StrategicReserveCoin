@@ -5,15 +5,21 @@ import Coins from "@/assets/img/WhitepaperImgs/Coins3.png";
 
 <template>
   <div
-    class="flex relative flex-col gap-5 p-20 text-center max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat justify-center items-center"
+    class="flex relative overflow-hidden flex-col gap-5 p-20 text-center max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat justify-center items-center"
   >
     <div
-      class="text-white uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
+      class="text-white z-10 uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
     >
       EXECUTIVE SUMMARY
     </div>
 
-    <div class="lg:items-start w-full lg:text-start">
+    <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-20"
+    />
+
+ 
+
+    <div class="lg:items-start z-10 w-full lg:text-start">
       <div
         class="flex font-ibm-sans lg:mb-20 pt-2 max-w-[500px] text-white flex-col gap-2 max-lg:items-center"
       >

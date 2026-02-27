@@ -91,9 +91,9 @@ const cards = [
 
 <template>
   <div
-    class="flex flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat"
+    class="flex relative overflow-hidden flex-col gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat"
   >
-    <div class="flex justify-center gap-4">
+    <div class="flex z-10 justify-center gap-4">
       <div
         class="text-white text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[30px] max-xs:text-[23px]"
       >
@@ -102,7 +102,11 @@ const cards = [
     </div>
 
     <div
-      class="mt-10 max-lg:mt-8 max-md:mt-6 grid grid-cols-2 grid-rows-4 gap-6 max-md:gap-2"
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-0"
+    />
+
+    <div
+      class="mt-10 max-lg:mt-8 z-10 max-md:mt-6 grid grid-cols-2 grid-rows-4 gap-6 max-md:gap-2"
     >
       <div
         v-for="card in cards"

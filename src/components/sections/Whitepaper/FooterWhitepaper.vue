@@ -23,12 +23,15 @@ const isMobile = window.innerWidth < 768;
 
 <template>
   <div
-    class="flex flex-col h-screen gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat justify-between lg:bg-contain bg-center"
+    class="flex flex-col h-screen relative overflow-hidden gap-5 p-20 max-xl:p-16 max-lg:px-10 max-md:px-5 max-md:py-8 bg-cover bg-no-repeat justify-between lg:bg-contain bg-center"
     :style="{
       backgroundImage: `url(${isMobile ? Bg : DesktopBg})`,
     }"
   >
-    <div class="flex gap-4">
+    <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-0"
+    />
+    <div class="flex gap-4 z-10">
       <div
         class="text-white lg:mx-auto uppercase text-[48px] font-ibm-mono leading-[52px] font-normal flex flex-col max-lg:text-[40px] max-lg:leading-[110%] max-md:text-[20px]"
       >
@@ -36,7 +39,7 @@ const isMobile = window.innerWidth < 768;
       </div>
     </div>
 
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col z-10 gap-10">
       <div class="w-full flex justify-end items-end">
         <div
           class="font-ibm-sans max-w-[300px] lg:text-xl lg:max-w-[400px] text-sm text-[#FFFFFFCC] pt-2 border-t border-white"

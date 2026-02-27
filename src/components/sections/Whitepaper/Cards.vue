@@ -57,10 +57,13 @@ const Cards = [
     }"
   >
     <div
+      class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-20"
+    />
+    <div
       v-for="(card, i) in Cards"
       :key="i"
       :class="[
-        'border border-[#FFFFFF42] lg:max-w-[400px] max-w-[250px] max-md:max-w-[200px] flex flex-col  rounded-xl overflow-hidden p-3 gap-2 absolute max-md:p-2',
+        'border border-[#FFFFFF42] z-10 lg:max-w-[400px] max-w-[250px] max-md:max-w-[200px] flex flex-col  rounded-xl overflow-hidden p-3 gap-2 absolute max-md:p-2',
         card.position,
       ]"
       :style="{ background: card.background }"
