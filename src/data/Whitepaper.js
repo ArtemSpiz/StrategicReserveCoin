@@ -88,51 +88,47 @@ export const Cards2 = [
 
 export const Cards3 = [
   {
-    num: "VI",
+    num: "V",
     title: "MEME CULTURE WITH DISCIPLINE",
     subtitle:
       "SRCOIN embraces meme culture as a core element of its ecosystem. By pairing memes with structured rules and governance, SRCOIN ensures that cultural energy contributes to sustainable participation rather than short-term speculation.",
   },
   {
-    num: "VII",
+    num: "II",
     title: "COMMUNITY-DRIVEN GROWTH",
     subtitle:
       "SRCOIN is governed through community ownership and management. Long-term contributors shape ecosystem decisions, while meme culture keeps the ecosystem fun, open, and alive.",
   },
   {
-    num: "VIII",
+    num: "III",
     title: "TRANSPARENCY BY DESIGN",
     subtitles: [
-      "Governance Scope",
-      "Participation and Voting",
-      "NFT Tiered Governance Model",
-      "Governance and Satoshi Vault",
-      "Transaction Fee Oversight",
+      "SRCOIN is built with clear on-chain mechanics, visible token allocations, and well-defined governance rules.",
     ],
   },
   {
-    num: "IX",
-    title: "NFT TIERED GOVERNANCE",
+    num: "IV",
+    title: "ACCESSIBLE AND INCLUSIVE",
     subtitle:
-      "SRCOIN is built with clear on-chain mechanics, visible token allocations, and well-defined governance rules.",
+      "SRCOIN makes participation, and community-focused without sacrificing structure or transperancy.",
   },
 ];
 
 export const Cards4 = [
   {
-    num: "VI",
+    num: "I",
     title: "MARKET RISK",
     subtitle:
       "RCOIN is subject to market volatility where the token prices may fluctuate due to market conditions, liquidity dynamics, or changes in participant behaviour. Price-based milestones do not guarantee favourable outcomes.",
   },
   {
-    num: "VII",
+    num: "II",
     title: "MILESTONE AND BURN RISK",
     subtitle:
       "SRCOIN's supply model includes predefined milestone evaluations that result in either token release or permanent burn. Burns are irreversible and may limit funding for marketing, development, or ecosystem expansion.",
   },
   {
-    num: "VIII",
+    num: "III",
     title: "GOVERNANCE RISK",
     subtitle:
       "SRCOIN is governed by a community-led framework. Governance decisions depend on participation quality, voter engagement, and adherence to governance rules.",

@@ -17,8 +17,6 @@ import Coins from "@/assets/img/WhitepaperImgs/Coins3.png";
       class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-20"
     />
 
- 
-
     <div class="lg:items-start z-10 w-full lg:text-start">
       <div
         class="flex font-ibm-sans lg:mb-20 pt-2 max-w-[500px] text-white flex-col gap-2 max-lg:items-center"
@@ -27,14 +25,13 @@ import Coins from "@/assets/img/WhitepaperImgs/Coins3.png";
           Strategic Reserve Coin
         </div>
         <div class="font-normal text-sm lg:text-lg">
-          a community-governed memecoin inspired by Bitcoin’s principles of
+          a community-governed memecoin inspired by Bitcoin's principles of
           discipline. It combines meme culture with structured governance,
-          transparent Tokenomics, and a reserve-inspired framework designed to
-          endure across generations.
+          transparent Tokenomics, and a reserve-inspired framewo
         </div>
         <div class="font-normal text-sm lg:text-lg">
           Built by Bitcoiners and guarded by Satoshi Squirrel, SRCOIN embraces
-          the cultural power of memes. 
+          the cultural power of memes.
         </div>
       </div>
     </div>
@@ -49,13 +46,14 @@ import Coins from "@/assets/img/WhitepaperImgs/Coins3.png";
       class="lg:items-end flex lg:justify-end lg:w-full lg:text-start items-center"
     >
       <div class="flex font-ibm-sans text-white z-10 flex-col gap-3">
-        <div class="font-medium text-base lg:text-xl">
-          Made by traders for traders
+        <div class="font-medium text-base max-w-[450px] lg:text-xl">
+          SRCOIN PRINCIPLES BUILT BY BITCOINERS AND GUARDED BY SATOSHI SQUIRREL
         </div>
         <div class="font-normal text-sm max-w-[500px] lg:text-lg">
           While meme culture provides energy and engagement, sustainability
           depends on discipline, transparency, and community ownership. The
-          following 
+          following principles guide the design and evolution of SRCOIN
+          ecosystem.
         </div>
       </div>
     </div>

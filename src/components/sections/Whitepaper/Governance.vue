@@ -9,15 +9,17 @@ const Cards = [
     title: "Governance and Oversight",
     text1:
       "Satoshi Vault operates under community governance where the decisions related to reserve management, including release conditions, BTC acquisition processes, and transparency standards are subject to governance oversight.",
-    text2:
-      "While the intent to acquire BTC is defined at the protocol level, governance ensures accountability in how reserve related actions are executed, without compromising Satoshi Vault’s long-term discipline.",
+    text2: `While the intent to acquire BTC is defined at the protocol level, governance ensures accountability in how reserve related actions are executed, without compromising Satoshi Vault's long-term discipline.`,
   },
   {
     title: "Governance and Oversight",
-    text1:
-      "Satoshi Vault operates under community governance where the decisions related to reserve management, including release conditions, BTC acquisition processes, and transparency standards are subject to governance oversight.",
-    text2:
-      "While the intent to acquire BTC is defined at the protocol level, governance ensures accountability in how reserve related actions are executed, without compromising Satoshi Vault’s long-term discipline.",
+    text1: `Satoshi Vault operates under community governance where the decisions
+related to reserve management, including release conditions, BTC
+acquisition processes, and transparency standards are subject to
+governance oversight.`,
+    text2: `While the intent to acquire BTC is defined at the protocol level,
+governance ensures accountability in how reserve related actions are
+executed, without compromising Satoshi Vault's long-term discipline term commitment to the ecosystem.`,
   },
 ];
 </script>

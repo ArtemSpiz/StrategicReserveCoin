@@ -26,7 +26,7 @@ export const ArrowCards1 = [
 export const ArrowCards2 = [
   {
     subtitle:
-      "SRCOIN applies a 1.29% transaction fee to on-chain transactions. The fee is enforced at the smart contract level and is designed to support long-term ecosystem sustainability. The key characteristics:",
+      "SRCOIN applies a 1% transaction fee to on-chain transactions. The fee is enforced at the smart contract level and is designed to support long-term ecosystem sustainability. The key characteristics:",
   },
   {
     right: true,

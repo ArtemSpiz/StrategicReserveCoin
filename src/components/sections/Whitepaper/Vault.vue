@@ -30,13 +30,13 @@ const isMobile = window.innerWidth < 768;
         credibility, and sustainability. The allocations governed by Satoshi
         Vault are intended to acquire and hold Bitcoin as a strategic reserve
         for the SRCOIN ecosystem. This reserve is designed to align SRCOIN with
-        Bitcoin’s principles of scarcity, long-term thinking, and monetary
+        Bitcoin's principles of scarcity, long-term thinking, and monetary
         discipline.
       </div>
       <div class="font-normal text-sm lg:text-xl">
         Satoshi Vault does not function as a custodial service for users, nor
         does it guarantee price outcomes. Instead, it provides a structural
-        foundation that supports SRCOIN’s long-term vision through transparent,
+        foundation that supports SRCOIN's long-term vision through transparent,
         rule-based reserve management.
       </div>
     </div>
